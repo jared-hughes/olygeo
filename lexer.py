@@ -7,7 +7,6 @@ def lex(characters, token_exprs_raw):
     pos = 0
     tokens = []
     # mod: compile everything first for my own sanity
-    print(token_exprs_raw)
     token_exprs = list(map(lambda exp: (re.compile(exp[0]), exp[1]), token_exprs_raw))
     while pos < len(characters):
         match = None

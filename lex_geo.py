@@ -6,7 +6,7 @@ from enum import Enum
 class Tags(Enum):
     WORD = "WORD"
     MATH = "MATH"
-    FULLSTOP = "FULLSTOP"
+    RESERVED = "RESERVED"
     PUNCT = "PUNCT"
 
 def lex_string(string):
@@ -18,7 +18,7 @@ def lex_string(string):
         (r'Proposed by.*', None),
         # Skip whitespace
         (r'\s', None),
-        (r'\.', Tags.FULLSTOP),
+        (r'\.', Tags.RESERVED),
         (r'[,();!"#%&\'*+,-/:?@^_`{|}~]', Tags.PUNCT),
         (r'[a-zA-Z][a-z\-]*', Tags.WORD)
     ]
@@ -31,7 +31,7 @@ def pp_lex(lex):
     """ Pretty-prints the lex in human-readable form """
     print("\n".join(map(lambda k: "\t".join(map(str, k)), lex)))
 
-with open("training_data/isl.json") as data_file:
-    data = json.load(data_file)
-
-pp_lex(lex_case(data[0]))
+if __name__ == '__main__':
+    with open("training_data/isl.json") as data_file:
+        data = json.load(data_file)
+    pp_lex(lex_case(data[0]))
