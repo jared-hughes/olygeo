@@ -13,7 +13,7 @@ def lex_string(string):
     """ Lex a string into words, math split by sentences """
     # assume no dollar signs in sentences
     token_exprs = [
-        (r'\$[^$]*\$', Tags.MATH),
+        (r'\$[^$]*\$', Tags.MATH, False),
         # Ignore proposed by ...
         (r'Proposed by.*', None),
         # Skip whitespace
@@ -22,7 +22,7 @@ def lex_string(string):
         (r'[,();!"#%&\'*+,-/:?@^_`{|}~]', Tags.PUNCT),
         (r'[a-zA-Z][a-z\-]*', Tags.WORD)
     ]
-    return lexer.lex(string, token_exprs)
+    return lexer.lex(string, token_exprs, True)
 
 def lex_case(case):
     return lex_string(case["content"])

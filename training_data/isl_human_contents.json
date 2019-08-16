@@ -1,0 +1,358 @@
+Let $ABC$ be an acute triangle and let $M$ be the midpoint of $AC$
+  A circle $\\omega$ passing through $B$ and $M$ meets the sides $AB$ and $BC$ at points $P$ and $Q$ respectively
+  Let $T$ be the point such that $BPTQ$ is a parallelogram
+  Suppose that $T$ lies on the circumcircle of $ABC$
+  Determine all possible values of $\\frac{BT}{BM}$.
+-----------------------------------------
+Triangle(ABC)
+AcuteTriangle(ABC)
+M = Midpoint(AC)
+Circle \\omega
+P = Intersect(\\omega, AB)
+Q = Intersect(\\omega, BC)
+Point(T)
+Parallelogram(BPTQ)
+T on circumcircle ABC
+-----------------------------------------
+In a triangle $ABC$, let $D$ and $E$ be the feet of the angle bisectors of angles $A$ and $B$, respectively
+  A rhombus is inscribed into the quadrilateral $AEDB$ (all vertices of the rhombus lie on different sides of $AEDB$)
+  Let $\\varphi$ be the non-obtuse angle of the rhombus
+  Prove that $\\varphi \\le \\max \\{  \\angle BAC, \\angle ABC  \\}$.
+-----------------------------------------
+Triangle(ABC)
+
+-----------------------------------------
+Let $ABCD$ be a convex quadrilateral, and let $P$, $Q$, $R$, and $S$ be points on the sides $AB$, $BC$, $CD$, and $DA$, respectively
+  Let the line segment $PR$ and $QS$ meet at $O$
+  Suppose that each of the quadrilaterals $APOS$, $BQOP$, $CROQ$, and $DSOR$ has an incircle
+  Prove that the lines $AC$, $PQ$, and $RS$ are either concurrent or parallel to each other.
+-----------------------------------------
+-----------------------------------------
+Given triangle $ABC$ the point $J$ is the centre of the excircle opposite the vertex $A.$ This excircle is tangent to the side $BC$ at $M$, and to the lines $AB$ and $AC$ at $K$ and $L$, respectively
+  The lines $LM$ and $BJ$ meet at $F$, and the lines $KM$ and $CJ$ meet at $G.$ Let $S$ be the point of intersection of the lines $AF$ and $BC$, and let $T$ be the point of intersection of the lines $AG$ and $BC.$ Prove that $M$ is the midpoint of $ST.$
+  (The excircle of $ABC$ opposite the vertex $A$ is the circle that is tangent to the line segment $BC$, to the ray $AB$ beyond $B$, and to the ray $AC$ beyond $C$.)
+-----------------------------------------
+-----------------------------------------
+Let $ABCD$ be a convex quadrilateral whose sides $AD$ and $BC$ are not parallel
+  Suppose that the circles with diameters $AB$ and $CD$ meet at points $E$ and $F$ inside the quadrilateral
+  Let $\\omega_E$ be the circle through the feet of the perpendiculars from $E$ to the lines $AB,BC$ and $CD$
+  Let $\\omega_F$ be the circle through  the feet of the perpendiculars from $F$ to the lines $CD,DA$ and $AB$
+  Prove that the midpoint of the segment $EF$ lies on the line through the two intersections of $\\omega_E$ and $\\omega_F$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a fixed acute-angled triangle
+  Consider some points $E$ and $F$ lying on the sides $AC$ and $AB$, respectively, and let $M$ be the midpoint of $EF$
+  Let the perpendicular bisector of $EF$ intersect the line $BC$ at $K$, and let the perpendicular bisector of $MK$ intersect the lines $AC$ and $AB$ at $S$ and $T$ , respectively
+  We call the pair $(E, F )$ $\\textit{interesting}$, if the quadrilateral $KSAT$ is cyclic.Suppose that the pairs $(E_1 , F_1 )$ and $(E_2 , F_2 )$ are interesting
+  Prove that $\\displaystyle\\frac{E_1 E_2}{AB}=\\frac{F_1 F_2}{AC}$
+
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be an acute triangle
+  Let $\\omega$ be a circle whose centre $L$ lies on the side $BC$
+  Suppose that $\\omega$ is tangent to $AB$ at $B'$ and $AC$ at $C'$
+  Suppose also that the circumcentre $O$ of triangle $ABC$ lies on the shorter arc $B'C'$ of $\\omega$
+  Prove that the circumcircle of $ABC$ and $\\omega$ meet at two points.
+-----------------------------------------
+-----------------------------------------
+Let $ABCD$ be a convex quadrilateral with non-parallel sides $BC$ and $AD$
+  Assume that there is a point $E$ on the side $BC$ such that the quadrilaterals $ABED$ and $AECD$ are circumscribed
+  Prove that there is a point $F$ on the side $AD$ such that the quadrilaterals $ABCF$ and $BCDF$ are circumscribed if and only if $AB$ is parallel to $CD$.
+-----------------------------------------
+-----------------------------------------
+Let $A_1, B_1$ and $C_1$ be points on sides $BC$, $CA$ and $AB$ of an acute triangle $ABC$ respectively, such that $AA_1$, $BB_1$ and $CC_1$ are the internal angle bisectors of triangle $ABC$
+  Let $I$ be the incentre of triangle $ABC$, and $H$ be the orthocentre of triangle $A_1B_1C_1$
+  Show that
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be an acute triangle with circumcircle $\\Omega$
+  Let $B_0$ be the midpoint of $AC$ and let $C_0$ be the midpoint of $AB$
+  Let $D$ be the foot of the altitude from $A$ and let $G$ be the centroid of the triangle $ABC$
+  Let $\\omega$ be a circle through $B_0$ and $C_0$ that is tangent to the circle $\\Omega$ at a point $X\ot= A$
+  Prove that the points $D,G$ and $X$ are collinear.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with $\\angle B > \\angle C$
+  Let $P$ and $Q$ be two different points on line $AC$ such that $\\angle PBA = \\angle QBA = \\angle ACB $ and $A$ is located between $P$ and $C$
+  Suppose that there exists an interior point $D$ of segment $BQ$ for which $PD=PB$
+  Let the ray $AD$ intersect the circle $ABC$ at $R \eq A$
+  Prove that $QB = QR$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with $AB=AC$ and let $D$ be the midpoint of $AC$
+  The angle bisector of $\\angle BAC$ intersects the circle through $D,B$  and $C$ at the point $E$  inside the triangle $ABC$
+  The line $BD$ intersects the circle through $A,E$ and $B$ in two points $B$ and $F$
+  The lines $AF$ and $BE$ meet at a point $I$, and the lines $CI$ and $BD$ meet at a point $K$
+  Show that $I$ is the incentre of triangle $KAB$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be an acute triangle with $D, E, F$ the feet of the altitudes lying on $BC, CA, AB$ respectively
+  One of the intersection points of the line $EF$ and the circumcircle is $P.$ The lines $BP$ and $DF$ meet at point $Q.$ Prove that $AP = AQ.$
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with circumcenter $O$ and incenter $I$
+  The points $D,E$ and $F$ on the sides $BC,CA$ and $AB$ respectively are such that $BD+BF=CA$ and $CD+CE=AB$
+  The circumcircles of the triangles $BFD$ and $CDE$ intersect at $P \eq D$
+  Prove that $OP=OI$.
+-----------------------------------------
+-----------------------------------------
+Triangle $ABC$ has circumcircle $\\Omega$ and circumcenter $O$
+  A circle $\\Gamma$ with center $A$ intersects the segment $BC$ at points $D$ and $E$, such that $B$, $D$, $E$, and $C$ are all different and lie on line $BC$ in this order
+  Let $F$ and $G$ be the points of intersection of $\\Gamma$ and $\\Omega$, such that $A$, $F$, $B$, $C$, and $G$ lie on $\\Omega$ in this order
+  Let $K$ be the second point of intersection of the circumcircle of triangle $BDF$ and the segment $AB$
+  Let $L$ be the second point of intersection of the circumcircle of triangle $CGE$ and the segment $CA$.
+  Suppose that the lines $FK$ and $GL$ are different and intersect at the point $X$
+  Prove that $X$ lies on the line $AO$.
+-----------------------------------------
+-----------------------------------------
+Let the excircle of triangle $ABC$ opposite the vertex $A$ be tangent to the side $BC$ at the point $A_1$
+  Define the points $B_1$ on $CA$ and $C_1$ on $AB$ analogously, using the excircles opposite $B$ and $C$, respectively
+  Suppose that the circumcentre of triangle $A_1B_1C_1$ lies on the circumcircle of triangle $ABC$
+  Prove that triangle $ABC$ is right-angled.
+  Polyansky, Russia
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be an acute triangle with $AB > AC$
+  Let $\\Gamma $ be its cirumcircle, $H$ its orthocenter, and $F$ the foot of the altitude from $A$
+  Let $M$ be the midpoint of $BC$
+  Let $Q$ be the point on $\\Gamma$ such that $\\angle HQA = 90^{\\circ}$ and let $K$ be the point on $\\Gamma$ such that $\\angle HKQ = 90^{\\circ}$
+  Assume that the points $A$, $B$, $C$, $K$ and $Q$ are all different and lie on $\\Gamma$ in this order.
+  Prove that the circumcircles of triangles $KQH$ and $FKM$ are tangent to each other.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with $AB \eq AC$ and circumcenter $O$
+  The bisector of $\\angle BAC$ intersects $BC$ at $D$
+  Let $E$ be the reflection of $D$ with respect to the midpoint of $BC$
+  The lines through $D$ and $E$ perpendicular to $BC$ intersect the lines $AO$ and $AD$ at $X$ and $Y$ respectively
+  Prove that the quadrilateral $BXCY$ is cyclic.
+-----------------------------------------
+-----------------------------------------
+Let $ABCD$ be a convex quadrilateral with $\\angle ABC = \\angle ADC < 90^{\\circ}$
+  The internal angle bisectors of $\\angle ABC$ and $\\angle ADC$ meet $AC$ at $E$ and $F$ respectively, and meet each other at point $P$
+  Let $M$ be the midpoint of $AC$ and let $\\omega$ be the circumcircle of triangle $BPD$
+  Segments $BM$ and $DM$ intersect $\\omega$ again at $X$ and $Y$ respectively
+  Denote by $Q$ the intersection point of lines $XE$ and $YF$
+  Prove that $PQ \\perp AC$.
+-----------------------------------------
+-----------------------------------------
+Let $\\Gamma$ be the circumcircle of acute triangle $ABC$
+  Points $D$ and $E$ are on segments $AB$ and $AC$ respectively such that $AD = AE$
+  The perpendicular bisectors of $BD$ and $CE$ intersect minor arcs $AB$ and $AC$ of $\\Gamma$ at points $F$ and $G$ respectively
+  Prove that lines $DE$ and $FG$ are either parallel or they are the same line.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be an acute triangle witBh circumcircle $\\Gamma$
+  Let $\\ell$ be a tangent line to $\\Gamma$, and let $\\ell_a, \\ell_b$ and $\\ell_c$ be the lines obtained by reflecting $\\ell$ in the lines $BC$, $CA$ and $AB$, respectively
+  Show that the circumcircle of the triangle determined by the lines $\\ell_a, \\ell_b$ and $\\ell_c$ is tangent to the circle $\\Gamma$.
+-----------------------------------------
+-----------------------------------------
+Let $A_1$ be the center of the square inscribed in acute triangle $ABC$ with two vertices of the square on side $BC$
+   Thus one of the two remaining vertices of the square is on side $AB$ and the other is on $AC$
+  Points $B_1,\\ C_1$ are defined in a similar way for inscribed squares with two vertices on sides $AC$ and $AB$, respectively
+  Prove that lines $AA_1,\\ BB_1,\\ CC_1$ are concurrent.
+-----------------------------------------
+-----------------------------------------
+A circle $\\omega$ with radius $1$ is given
+  A collection $T$ of triangles is called good, if the following conditions hold:
+  each triangle from $T$ is inscribed in $\\omega$;no two triangles from $T$ have a common interior point.
+  Determine all positive real numbers $t$ such that, for each positive integer $n$, there exists a good collection of $n$ triangles, each of perimeter greater than $t$.
+-----------------------------------------
+-----------------------------------------
+Let $R$ and $S$ be different points on a circle $\\Omega$ such that $RS$ is not a diameter
+  Let $\\ell$ be the tangent line to $\\Omega$ at $R$
+  Point $T$ is such that $S$ is the midpoint of the line segment $RT$
+  Point $J$ is chosen on the shorter arc $RS$ of $\\Omega$ so that the circumcircle $\\Gamma$ of triangle $JST$ intersects $\\ell$ at two distinct points
+  Let $A$ be the common point of $\\Gamma$ and $\\ell$ that is closer to $R$
+  Line $AJ$ meets $\\Omega$ again at $K$
+  Prove that the line $KT$ is tangent to $\\Gamma$.
+-----------------------------------------
+-----------------------------------------
+Triangle $BCF$ has a right angle at $B$
+  Let $A$ be the point on line $CF$ such that $FA=FB$ and $F$ lies between $A$ and $C$
+  Point $D$ is chosen so that $DA=DC$ and $AC$ is the bisector of $\\angle{DAB}$
+  Point $E$ is chosen so that $EA=ED$B and $AD$ is the bisector of $\\angle{EAC}$
+  Let $M$ be the midpoint of $CF$
+  Let $X$ be the point such that $AMXE$ is a parallelogram
+  Prove that $BD,FX$ and $ME$ are concurrent.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with $CA \eq CB$
+  Let $D$, $F$, and $G$ be the midpoints of the sides $AB$, $AC$, and $BC$ respectively
+  A circle $\\Gamma$ passing through $C$ and tangent to $AB$ at $D$ meets the segments $AF$ and $BG$ at $H$ and $I$, respectively
+  The points $H'$ and $I'$ are symmetric to $H$ and $I$ about $F$ and $G$, respectively
+  The line $H'I'$ meets $CD$ and $FG$ at $Q$ and $M$, respectively
+  The line $CM$ meets $\\Gamma$ again at $P$
+  Prove that $CQ = QP$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle
+  The points $K, L,$ and $M$ lie on the segments $BC, CA,$ and $AB,$ respectively, such that the lines $AK, BL,$ and $CM$ intersect in a common point
+  Prove that it is possible to choose two of the triangles $ALM, BMK,$ and $CKL$ whose inradii sum up to at least the inradius of the triangle $ABC$.
+-----------------------------------------
+-----------------------------------------
+Let $ABCDE$ be a convex pentagon such that $AB=BC=CD$, $\\angle{EAB}=\\angle{BCD}$, and $\\angle{EDC}=\\angle{CBA}$
+  Prove that the perpendicular line from $E$ to $BC$ and the line segments $AC$ and $BD$ are concurrent.
+-----------------------------------------
+-----------------------------------------
+Let $\\omega$ be the circumcircle of a triangle $ABC$
+  Denote by $M$ and $N$ the midpoints of the sides $AB$ and $AC$, respectively, and denote by $T$ the midpoint of the arc $BC$ of $\\omega$ not containing $A$
+  The circumcircles of the triangles $AMT$ and $ANT$ intersect the perpendicular bisectors of $AC$ and $AB$ at points $X$ and $Y$, respectively; assume that $X$ and $Y$ lie inside the triangle $ABC$
+  The lines $MN$ and $XY$ intersect at $K$
+  Prove that $KA=KT$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with circumcircle $\\Omega$ and incentre $I$
+  Let the line passing through $I$ and perpendicular to $CI$ intersect the segment $BC$ and the arc $BC$ (not containing $A$) of $\\Omega$ at points $U$ and $V$ , respectively
+  Let the line passing through $U$ and parallel to $AI$ intersect $AV$ at $X$, and let the line passing through $V$ and parallel to $AI$ intersect $AB$ at $Y$
+  Let $W$ and $Z$ be the midpoints of $AX$ and $BC$, respectively
+  Prove that if the points $I, X,$ and $Y$ are collinear, then the points $I, W ,$ and $Z$ are also collinear.
+  Rush, USA
+-----------------------------------------
+-----------------------------------------
+Let $P$ and $Q$ be on segment $BC$ of an acute triangle $ABC$ such that $\\angle PAB=\\angle BCA$ and $\\angle CAQ=\\angle ABC$
+  Let $M$ and $N$ be the points on $AP$ and $AQ$, respectively, such that $P$ is the midpoint of $AM$ and $Q$ is the midpoint of $AN$
+  Prove that the intersection of $BM$ and $CN$ is on the circumference of triangle $ABC$.
+-----------------------------------------
+-----------------------------------------
+Let $I$ be the incentre of a non-equilateral triangle $ABC$, $I_A$ be the $A$-excentre, $I'_A$ be the reflection of $I_A$ in $BC$, and $l_A$ be the reflection of line $AI'_A$ in $AI$
+  Define points $I_B$, $I'_B$ and line $l_B$ analogously
+  Let $P$ be the intersection point of $l_A$ and $l_B$.
+  Prove that $P$ lies on line $OI$ where $O$ is the circumcentre of triangle $ABC$.Let one of the tangents from $P$ to the incircle of triangle $ABC$ meet the circumcircle at points $X$ and $Y$
+  Show that $\\angle XIY = 120^{\\circ}$.
+-----------------------------------------
+-----------------------------------------
+
+-----------------------------------------
+-----------------------------------------
+Let $ABCDEF$ be a convex hexagon all of whose sides are tangent to a circle $\\omega$ with centre $O$
+  Suppose that the circumcircle of triangle $ACE$ is concentric with $\\omega$
+  Let $J$ be the foot of the perpendicular from $B$ to $CD$
+  Suppose that the perpendicular from $B$ to $DF$ intersects the line $EO$ at a point $K$
+  Let $L$ be the foot of the perpendicular from $K$ to $DE$
+  Prove that $DJ=DL$.
+-----------------------------------------
+-----------------------------------------
+Let $ABCD$ be a cyclic quadrilateral
+  Let $P$, $Q$, $R$ be the feet of the perpendiculars from $D$ to the lines $BC$, $CA$, $AB$, respectively
+  Show that $PQ=QR$ if and only if the bisectors of $\\angle ABC$ and $\\angle ADC$ are concurrent with $AC$.
+-----------------------------------------
+-----------------------------------------
+Let $A_1A_2A_3A_4$ be a non-cyclic quadrilateral
+  Let $O_1$ and $r_1$ be the circumcentre and the circumradius of the triangle $A_2A_3A_4$
+  Define $O_2,O_3,O_4$ and $r_2,r_3,r_4$ in a similar way
+  Prove that
+-----------------------------------------
+-----------------------------------------
+Let $D$ be the foot of perpendicular from $A$ to the Euler line (the line passing through the circumcentre and the orthocentre) of an acute scalene triangle $ABC$
+  A circle $\\omega$ with centre $S$ passes through $A$ and $D$, and it intersects sides $AB$ and $AC$ at $X$ and $Y$ respectively
+  Let $P$ be the foot of altitude from $A$ to $BC$, and let $M$ be the midpoint of $BC$
+  Prove that the circumcentre of triangle $XSY$ is equidistant from $P$ and $M$.
+-----------------------------------------
+-----------------------------------------
+In triangle $ABC$, let $\\omega$ be the excircle opposite to $A$
+  Let $D, E$ and $F$ be the points where $\\omega$ is tangent to $BC, CA$, and $AB$, respectively
+  The circle $AEF$ intersects line $BC$ at $P$ and $Q$
+  Let $M$ be the midpoint of $AD$
+  Prove that the circle $MPQ$ is tangent to $\\omega$.
+-----------------------------------------
+-----------------------------------------
+Let $n\\ge3$ be an integer
+  Two regular $n$-gons $\\mathcal{A}$ and $\\mathcal{B}$ are given in the plane
+  Prove that the vertices of $\\mathcal{A}$ that lie inside $\\mathcal{B}$ or on its boundary are consecutive.
+  (That is, prove that there exists a line separating those vertices of $\\mathcal{A}$ that lie inside $\\mathcal{B}$ or on its boundary from the other vertices of $\\mathcal{A}$.)
+-----------------------------------------
+-----------------------------------------
+Let $ABCD$ be a cyclic quadrilateral whose diagonals $AC$ and $BD$ meet at $E$
+  The extensions of the sides $AD$ and $BC$ beyond $A$ and $B$ meet at $F$
+  Let $G$ be the point such that $ECGD$ is a parallelogram, and let $H$ be the image of $E$ under reflection in $AD$
+  Prove that $D,H,F,G$ are concyclic.
+-----------------------------------------
+-----------------------------------------
+Let $ABCDEF$ be a convex hexagon with $AB=DE$, $BC=EF$, $CD=FA$, and $\\angle A-\\angle D = \\angle C -\\angle F = \\angle E -\\angle B$
+  Prove that the diagonals $AD$, $BE$, and $CF$ are concurrent.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with incentre $I$ and circumcircle $\\omega$
+  Let $D$ and $E$ be the second intersection points of $\\omega$ with $AI$ and $BI$, respectively
+  The chord $DE$ meets $AC$ at a point $F$, and $BC$ at a point $G$
+  Let $P$ be the intersection point of the line through $F$ parallel to $AD$ and the line through $G$ parallel to $BE$
+  Suppose that the tangents to $\\omega$ at $A$ and $B$ meet at a point $K$
+  Prove that the three lines $AE,BD$ and $KP$ are either parallel or concurrent.
+-----------------------------------------
+-----------------------------------------
+Let $B$ be a point on a circle $S_1$, and let $A$ be a point distinct from $B$ on the tangent at $B$ to $S_1$
+  Let $C$ be a point not on $S_1$ such that the line segment $AC$ meets $S_1$ at two distinct points
+  Let $S_2$ be the circle touching $AC$ at $C$ and touching $S_1$ at a point $D$ on the opposite side of $AC$ from $B$
+   Prove that the circumcentre of triangle $BCD$ lies on the circumcircle of triangle $ABC$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with circumcircle $\\Gamma$ and incenter $I$ and let $M$ be the midpoint of $\\overline{BC}$
+  The points $D$, $E$, $F$ are selected on sides $\\overline{BC}$, $\\overline{CA}$, $\\overline{AB}$ such that $\\overline{ID} \\perp \\overline{BC}$, $\\overline{IE}\\perp \\overline{AI}$, and $\\overline{IF}\\perp \\overline{AI}$
+  Suppose that the circumcircle of $\\triangle AEF$ intersects $\\Gamma$ at a point $X$ other than $A$
+  Prove that lines $XD$ and $AM$ meet on $\\Gamma$.
+-----------------------------------------
+-----------------------------------------
+Let $O$ be the circumcentre, and $\\Omega$ be the circumcircle of an acute-angled triangle $ABC$
+  Let $P$ be an arbitrary point on $\\Omega$, distinct from $A$, $B$, $C$, and their antipodes in $\\Omega$
+  Denote the circumcentres of the triangles $AOP$, $BOP$, and $COP$ by $O_A$, $O_B$, and $O_C$, respectively
+  The lines $\\ell_A$, $\\ell_B$, $\\ell_C$ perpendicular to $BC$, $CA$, and $AB$ pass through $O_A$, $O_B$, and $O_C$, respectively
+  Prove that the circumcircle of triangle formed by $\\ell_A$, $\\ell_B$, and $\\ell_C$ is tangent to the line $OP$.
+-----------------------------------------
+-----------------------------------------
+Let $ABCC_1B_1A_1$ be a convex hexagon such that $AB=BC$, and suppose that the line segments $AA_1, BB_1$, and $CC_1$ have the same perpendicular bisector
+  Let the diagonals $AC_1$ and $A_1C$ meet at $D$, and denote by $\\omega$ the circle $ABC$
+  Let $\\omega$ intersect the circle $A_1BC_1$ again at $E \eq B$
+  Prove that the lines $BB_1$ and $DE$ intersect on $\\omega$.
+-----------------------------------------
+-----------------------------------------
+Let $B = (-1, 0)$ and $C = (1, 0)$ be fixed points on the coordinate plane
+  A nonempty, bounded subset $S$ of the plane is said to be nice if
+  $\\text{(i)}$ there is a point $T$ in $S$ such that for every point $Q$ in $S$, the segment $TQ$ lies entirely in $S$; and
+  $\\text{(ii)}$ for any triangle $P_1P_2P_3$, there exists a unique point $A$ in $S$ and a permutation $\\sigma$ of the indices $\\{1, 2, 3\\}$ for which triangles $ABC$ and $P_{\\sigma(1)}P_{\\sigma(2)}P_{\\sigma(3)}$ are similar.
+  Prove that there exist two distinct nice subsets $S$ and $S'$ of the set $\\{(x, y) : x \\geq 0, y \\geq 0\\}$ such that if $A \\in S$ and $A' \\in S'$ are the unique choices of points in $\\text{(ii)}$, then the product $BA \\cdot BA'$ is a constant independent of the triangle $P_1P_2P_3$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be an acute triangle with orthocenter $H$
+  Let $G$ be the point such that the quadrilateral $ABGH$ is a parallelogram
+  Let $I$ be the point on the line $GH$ such that $AC$ bisects $HI$
+  Suppose that the line $AC$ intersects the circumcircle of the triangle $GCI$ at $C$ and $J$
+  Prove that $IJ = AH$.
+-----------------------------------------
+-----------------------------------------
+Consider a fixed circle $\\Gamma$ with three fixed points $A, B,$ and $C$ on it
+  Also, let us fix a real number $\\lambda \\in(0,1)$
+  For a variable point $P \ot\\in\\{A, B, C\\}$ on $\\Gamma$, let $M$ be the point on the segment $CP$ such that $CM =\\lambda\\cdot  CP$
+  Let $Q$ be the second point of intersection of the circumcircles of the triangles $AMP$ and $BMC$
+  Prove that as $P$ varies, the point $Q$ lies on a fixed circle.
+-----------------------------------------
+-----------------------------------------
+Let $\\Omega$ and $O$ be the circumcircle and the circumcentre of an acute-angled triangle $ABC$ with $AB > BC$
+  The angle bisector of $\\angle ABC$ intersects $\\Omega$ at $M \e B$
+  Let $\\Gamma$ be the circle with diameter $BM$
+  The angle bisectors of $\\angle AOB$ and $\\angle BOC$ intersect $\\Gamma$ at points $P$ and $Q,$ respectively
+  The point $R$ is chosen on the line $P Q$ so that $BR = MR$
+  Prove that $BR\\parallel AC$.(Here we always assume that an angle bisector is a ray.)
+-----------------------------------------
+-----------------------------------------
+There are $2017$ mutually external circles drawn on a blackboard, such that no two are tangent and no three share a common tangent
+  A tangent segment is a line segment that is a common tangent to two circles, starting at one tangent point and ending at the other one
+  Luciano is drawing tangent segments on the blackboard, one at a time, so that no tangent segment intersects any other circles or previously drawn tangent segments
+  Luciano keeps drawing tangent segments until no more can be drawn.
+  Find all possible numbers of tangent segments when Luciano stops drawing.
+-----------------------------------------
+-----------------------------------------
+A point $T$ is chosen inside a triangle $ABC$
+  Let $A_1$, $B_1$, and $C_1$ be the reflections of $T$ in $BC$, $CA$, and $AB$, respectively
+  Let $\\Omega$ be the circumcircle of the triangle $A_1B_1C_1$
+  The lines $A_1T$, $B_1T$, and $C_1T$ meet $\\Omega$ again at $A_2$, $B_2$, and $C_2$, respectively
+  Prove that the lines $AA_2$, $BB_2$, and $CC_2$ are concurrent on $\\Omega$.
+-----------------------------------------
+-----------------------------------------
+Let $ABC$ be a triangle with $\\angle BCA=90^{\\circ}$, and let $D$ be the foot of the altitude from $C$
+  Let $X$ be a point in the interior of the segment $CD$
+  Let $K$ be the point on the segment $AX$ such that $BK=BC$
+  Similarly, let $L$ be the point on the segment $BX$ such that $AL=AC$
+  Let $M$ be the point of intersection of $AL$ and $BK$.
+  Show that $MK=ML$.
+-----------------------------------------
+-----------------------------------------
