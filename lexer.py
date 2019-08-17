@@ -22,7 +22,6 @@ def lex(characters, token_exprs_raw, case_insensitive):
             match = regex.match(characters, pos)
             if match:
                 text = match.group(0)
-                print(expr, lower)
                 if lower:
                     text = text.lower()
                 if tag:

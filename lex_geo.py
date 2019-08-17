@@ -19,6 +19,17 @@ def lex_string(string):
         # Skip whitespace
         (r'\s', None),
         (r'\.', Tags.RESERVED),
+    ]
+    # not escaped, so don't use regex stuff
+    # should only be letters anyway
+    keywords = [
+        "let", "be", "a", "an", "the",
+        "quadrilateral", "triangle", "hexagon",
+        "convex", "acute", "obtuse",
+        "midpoint", "of"
+    ]
+    token_exprs += map(lambda k: (r"\b%s\b"%k, Tags.RESERVED), keywords)
+    token_exprs += [
         (r'[,();!"#%&\'*+,-/:?@^_`{|}~]', Tags.PUNCT),
         (r'[a-zA-Z][a-z\-]*', Tags.WORD)
     ]

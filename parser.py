@@ -7,7 +7,7 @@ class Result:
         self.pos = pos
 
     def __repr__(self):
-        return 'Result(%s, %d)' % (self.value, self.pos)
+        return 'Result(\n%s\n%d)' % (indented(self.value), self.pos)
 
 class Parser:
     def __call__(self, tokens, pos):
@@ -165,3 +165,15 @@ class Exp(Parser):
             if next_result:
                 result = next_result
         return result
+
+
+def indented(string):
+    amount = 2
+    style = " "
+    lines = str(string).split("\n")
+    indented_lines = map(lambda line: style * amount + line, lines)
+    return "\n".join(indented_lines)
+
+# https://stackoverflow.com/q/21892989
+def star(f):
+  return lambda args: f(*args)
