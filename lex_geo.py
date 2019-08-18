@@ -8,12 +8,17 @@ class Tags(Enum):
     MATH = "MATH"
     RESERVED = "RESERVED"
     PUNCT = "PUNCT"
+    START = "START"
+    END = "END"
+
+class Modes(Enum):
+    TEXT = "TEXT"
+    MATH = "MATH"
 
 def lex_string(string):
     """ Lex a string into words, math split by sentences """
     # assume no dollar signs in sentences
-    token_exprs = [
-        (r'\$[^$]*\$', Tags.MATH, False),
+    text_token_exprs = [
         # Ignore proposed by ...
         (r'Proposed by.*', None),
         # Skip whitespace
@@ -28,12 +33,26 @@ def lex_string(string):
         "convex", "acute", "obtuse",
         "midpoint", "of"
     ]
-    token_exprs += map(lambda k: (r"\b%s\b"%k, Tags.RESERVED), keywords)
-    token_exprs += [
+    text_token_exprs += map(lambda k: (r"\b%s\b"%k, Tags.RESERVED), keywords)
+    text_token_exprs += [
         (r'[,();!"#%&\'*+,-/:?@^_`{|}~]', Tags.PUNCT),
         (r'[a-zA-Z][a-z\-]*', Tags.WORD)
     ]
-    return lexer.lex(string, token_exprs, True)
+    math_token_exprs = [
+        (r'[^$]+', Tags.MATH, False)
+    ]
+    modes = {
+        Modes.TEXT: text_token_exprs + \
+            [
+                ("\$", Modes.MATH)
+            ],
+        Modes.MATH: math_token_exprs + \
+            [
+                ("\$", Modes.TEXT)
+            ]
+    }
+    return lexer.lex(string, modes, Modes, Modes.TEXT, Tags.START, \
+        Tags.END, case_insensitive=True)
 
 def lex_case(case):
     return lex_string(case["content"])
