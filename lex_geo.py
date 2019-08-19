@@ -24,6 +24,8 @@ def lex_string(string):
     text_token_exprs = [
         # Ignore proposed by ...
         (r'Proposed by.*', None),
+        # Ignore objectives
+        (r'(Determine|Prove|Show|Find)[^\n]*\n',None),
         # Skip whitespace
         (r'\s', None),
         (r'\.', Tags.RESERVED),
