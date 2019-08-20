@@ -2,9 +2,9 @@
 import lexer
 import json
 from enum import Enum
+from test import test
 
 class Tags(Enum):
-    WORD = "WORD"
     RESERVED = "RESERVED"
     PUNCT = "PUNCT"
     START = "START"
@@ -41,17 +41,18 @@ def lex_string(string):
     text_token_exprs += map(lambda k: (r"\b%s\b"%k, Tags.RESERVED), keywords)
     text_token_exprs += [
         (r'[,();!"#%&\'*+,-/:?@^_`{|}~]', Tags.PUNCT),
-        (r'[a-zA-Z][a-z\-]*', Tags.WORD)
+        # Ignore words
+        (r'[a-zA-Z][a-z\-]*', None)
     ]
     math_token_exprs = [
         # Digits are almost always preceded by an underscore
         # A_0
         (r'[A-Z]\'?(_[a-z0-9])?', Tags.MATH_POINT, False),
         (r'[<>=]', Tags.MATH_COMPARE),
+        # sometimes end a sentence inside math
+        (r'\.', Tags.RESERVED),
         # separate listing respectively
         (r',', Tags.PUNCT),
-        # sometimes end a sentence inside math
-        (r'\.', Tags.PUNCT),
         # \\Omega
         (r'\\[A-Za-z][a-z]*(_[a-z0-9])?', Tags.MATH_OBJECT, False),
         # Ignore curly braces because most functions are just monadic with the exception of frac
@@ -69,8 +70,7 @@ def lex_string(string):
                 ("\$", Modes.TEXT)
             ]
     }
-    return lexer.lex(string, modes, Modes, Modes.TEXT, Tags.START, \
-        Tags.END, case_insensitive=True)
+    return lexer.lex(string, modes, Modes, Modes.TEXT, None, None, case_insensitive=True)
 
 def lex_case(case):
     return lex_string(case["content"])
@@ -79,41 +79,19 @@ def pp_lex(lex):
     """ Pretty-prints the lex in human-readable form """
     print("\n".join(map(lambda k: "\t".join(map(str, k)), lex)))
 
-def ratio(success_count, attempt_count):
-    success_ratio = success_count / attempt_count
-    return "%d/%d=%d%%"%(success_count, attempt_count, int(success_ratio*100))
-
 def test_math_lexing():
     import re
-    with open("training_data/isl.json") as f:
-        data = json.load(f)
-    failures = []
-    failure_count = 0
-    success_count = 0
-    case_success_count = 0
-    case_total_count = len(data)
-    for case in data:
-        successful = True
-        content = case["content"]
-        math_expressions = re.findall("\$[^$]*\$", content)
-        for expr in math_expressions:
-            try:
-                pp_lex(lex_string(expr))
-                success_count += 1
-            except:
-                if successful:
-                    print(":(", expr)
-                successful = False
-                failure_count += 1
-                failures.append(expr)
-        if successful:
-            case_success_count += 1
-    total_count = success_count + failure_count
-    print("Failed expressions:\n", "\n".join(failures))
-    print("Successful expressions: %s"%ratio(success_count, total_count))
-    print("Successful cases: %s"%ratio(case_success_count, case_total_count))
+    def get_math(content):
+        return re.findall("\$[^$]*\$", content)
+    def pretty_lex(expr):
+        pp_lex(lex_string(expr))
+    test(pretty_lex, get_math)
+
+    # Successful parts: 865/892=96%
+    # Successful cases: 38/52=73%
 
 if __name__ == '__main__':
     with open("training_data/isl.json") as data_file:
         data = json.load(data_file)
     pp_lex(lex_case(data[0]))
+    # test_math_lexing()

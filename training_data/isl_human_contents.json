@@ -19,8 +19,6 @@ In a triangle $ABC$, let $D$ and $E$ be the feet of the angle bisectors of angle
   Let $\\varphi$ be the non-obtuse angle of the rhombus
   Prove that $\\varphi \\le \\max \\{  \\angle BAC, \\angle ABC  \\}$.
 -----------------------------------------
-Triangle(ABC)
-
 -----------------------------------------
 Let $ABCD$ be a convex quadrilateral, and let $P$, $Q$, $R$, and $S$ be points on the sides $AB$, $BC$, $CD$, and $DA$, respectively
   Let the line segment $PR$ and $QS$ meet at $O$

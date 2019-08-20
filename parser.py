@@ -110,6 +110,15 @@ class Rep(Parser):
             result = self.parser(tokens, pos)
         return Result(results, pos)
 
+class RepPlus(Parser):
+    # this could be a function, but it's prettier as a class
+    # A+
+    def __init__(self, parser):
+        self.parser = parser
+
+    def __call__(self, tokens, pos):
+        return (self.parser + Rep(self.parser))(tokens, pos)
+
 class Process(Parser):
     # apply function to successful application of parser
     def __init__(self, parser, function):

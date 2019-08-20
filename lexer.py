@@ -31,9 +31,11 @@ def lex(characters, modes, mode_types, start_mode, tag_start, tag_end, case_inse
                 if tag in mode_types:
                     # actually a transition
                     # tag is a mode
-                    tokens.append((mode, tag_end))
+                    if tag_end is not None:
+                        tokens.append((mode, tag_end))
                     mode = tag
-                    tokens.append((mode, tag_start))
+                    if tag_start is not None:
+                        tokens.append((mode, tag_start))
                 elif tag:
                     token = (text, tag)
                     tokens.append(token)

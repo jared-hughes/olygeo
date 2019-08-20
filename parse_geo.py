@@ -3,70 +3,29 @@ from parser import *
 from functools import reduce
 from lex_geo import *
 import json
-
-class SentenceList:
-    def __init__(self, left, right):
-        self.left = left
-        self.right = right
-
-    def __repr__(self):
-        return "%s\n%s"%(self.left, self.right)
-
-class Sentence:
-    def __init__(self, things):
-        self.things = things
-
-    def __repr__(self):
-        return "Sentence\n%s"%(indented(self.things))
-
-class Statement:
-    pass
-
-class LetStatement(Statement):
-    def __init__(self, name, object):
-        self.name = name
-        self.object = object
-
-    def __repr__(self):
-        return "Let[%s, %s]"%(self.name, self.object)
-
-class ObjectBoolAdj:
-    def __init__(self, adj):
-        self.adj = adj
-
-    def __repr__(self):
-        return "BoolAdj[%s]"%self.adj
-
-class AdjectiveList:
-    def __init__(self, adj_list):
-        self.adj_list = adj_list
-
-    def __repr__(self):
-        return "AdjList[%s]"%(self.adj_list)
-
-class Relation:
-    def __init__(self, rel, objects):
-        self.rel = rel
-        self.objects = objects
-
-    def __repr__(self):
-        return "Relation[%s, %s]"%(self.rel, self.objects)
-
-class Construction:
-    def __init__(self, rel, from_objects):
-        self.rel = rel
-        self.from_objects = from_objects
-
-    def __repr__(self):
-        return "Construction[%s, %s]"%(self.rel, self.from_objects)
-
+from ast_geo import *
 
 def keyword(key):
     return Reserved(key, Tags.RESERVED)
 
+def point():
+    return Tag(Tags.MATH_POINT)
+
+def polygon():
+    return RepPlus(point())
+
+def obj():
+    return Tag(Tags.MATH_OBJECT)
+
+def reference():
+    return obj() | polygon()
+
+def math():
+    return reference()
+
 def thing():
     # just testing a POC, so include everything
-    return Tag(Tags.WORD) | Tag(Tags.MATH) | Tag(Tags.PUNCT)
+    return math() | Tag(Tags.PUNCT)
 
 def any_keyword(words):
     word_parsers = map(keyword, words)
@@ -120,13 +79,34 @@ def parser():
 def parse_geo(tokens):
     return parser()(tokens, 0)
 
+def test_math_parsing():
+    import re
+    def get_math(content):
+        return re.findall("\$[^$]*\$", content)
+    def parse_math(string):
+        tokens = lex_string(string)
+        pp_lex(tokens)
+        result = math()(tokens, 0)
+        assert result.pos == len(tokens)
+        assert result != None
+    test(parse_math, get_math)
+
 if __name__ == '__main__':
-    with open("training_data/isl.json") as data_file:
-        data = json.load(data_file)
+    # with open("training_data/isl.json") as data_file:
+    #     data = json.load(data_file)
     # tokens = lex_case(data[0])
     # result = parse_geo(tokens)
     # let $ABC$ be an acute triangle and let $M$ be the midpoint of $AC$
-    tokens = lex_string("let $ABC$ be an acute triangle and let $M$ be the midpoint of $AC$")
-    pp_lex(tokens)
-    result = sentence()(tokens, 0)
-    print(result)
+    # tokens = lex_string("""Let $ABC$ be an acute triangle and let $M$ be the midpoint of $AC$
+    #   A circle $\\omega$ passing through $B$ and $M$ meets the sides $AB$ and $BC$ at points $P$ and $Q$ respectively
+    #   Let $T$ be the point such that $BPTQ$ is a parallelogram
+    #   Suppose that $T$ lies on the circumcircle of $ABC$
+    #   Determine all possible values of $\\frac{BT}{BM}$.""")
+    # pp_lex(tokens)
+    # result = sentence()(tokens, 0)
+    # print(result)
+    test_math_parsing()
+    # tokens = lex_string("$\\omega$")
+    # pp_lex(tokens)
+    # result = math()(tokens, 0)
+    # print(result)
