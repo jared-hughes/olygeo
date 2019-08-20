@@ -8,6 +8,8 @@ def lex(characters, modes, mode_types, start_mode, tag_start, tag_end, case_inse
     tokens = []
     # mod: compile everything first for my own sanity
     i = re.IGNORECASE if case_insensitive else 0
+    # always do MULTILINE to match newlines
+    i = i | re.MULTILINE
     def compile_expr(exp):
         return (re.compile(exp[0], i), exp[1], exp[2] if len(exp) > 2 else case_insensitive)
     # compile expressions

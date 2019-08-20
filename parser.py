@@ -1,4 +1,5 @@
 # http://www.jayconrod.com/posts/38/a-simple-interpreter-from-scratch-in-python-part-2
+from math import inf
 
 class Result:
     def __init__(self, value, pos):
@@ -8,6 +9,16 @@ class Result:
 
     def __repr__(self):
         return 'Result(\n%s\n%d)' % (indented(self.value), self.pos)
+
+class ParserPair:
+    """ Serves only to deal with left-associative __mul__ operator for Parser """
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
+
+    def __mul__(self, other):
+        # hope other is function
+        return Exp(self.left, self.right ^ (lambda x: other))
 
 class Parser:
     def __call__(self, tokens, pos):
@@ -19,7 +30,22 @@ class Parser:
 
     # other needs to be Process (xored)
     def __mul__(self, other):
-        return Exp(self, other)
+        if hasattr(other, "function"):
+            # other is process
+            return Exp(self, other)
+        else:
+            # hope other is parser
+            return ParserPair(self, other)
+
+    def __pow__(self, other):
+        if hasattr(other, "function"):
+            # other is process
+            return ExpSep(self, other.parser, other.function)
+        if hasattr(self, "function"):
+            # self is process, assume other is parser
+            return ExpSep(self.parser, other, self.function)
+        # assume other is function --> equivalent to ^
+        return Process(self, other)
 
     def __or__(self, other):
         return Alternate(self, other)
@@ -110,14 +136,26 @@ class Rep(Parser):
             result = self.parser(tokens, pos)
         return Result(results, pos)
 
-class RepPlus(Parser):
-    # this could be a function, but it's prettier as a class
-    # A+
-    def __init__(self, parser):
+class RepMulti(Parser):
+    # A{min_reps, max_reps}
+    def __init__(self, parser, min_reps=1, max_reps=inf):
         self.parser = parser
+        self.min_reps = min_reps
+        self.max_reps = max_reps
 
     def __call__(self, tokens, pos):
-        return (self.parser + Rep(self.parser))(tokens, pos)
+        results = []
+        result = self.parser(tokens, pos)
+        for i in range(self.max_reps + 1):
+            if result is None or i == self.max_reps:
+                # finish up with conclusion
+                if len(results) < self.min_reps:
+                    return None
+                else:
+                    return Result(results, pos)
+            results.append(result.value)
+            pos = result.pos
+            result = self.parser(tokens, pos)
 
 class Process(Parser):
     # apply function to successful application of parser
@@ -166,6 +204,30 @@ class Exp(Parser):
         def process_next(parsed):
             (sepfunc, right) = parsed
             return sepfunc(result.value, right)
+        next_parser = self.separator + self.parser ^ process_next
+
+        next_result = result
+        while next_result:
+            next_result = next_parser(tokens, result.pos)
+            if next_result:
+                result = next_result
+        return result
+
+class ExpSep(Parser):
+    """ Also passes the separator to the sepfunc """
+    # list: A(BA)*
+    def __init__(self, parser, separator, sepfunc):
+        self.parser = parser
+        self.separator = separator
+        self.sepfunc = sepfunc
+
+    def __call__(self, tokens, pos):
+        result = self.parser(tokens, pos)
+
+        def process_next(parsed):
+            (sep, right) = parsed
+            print(sep)
+            return self.sepfunc(sep, result.value, right)
         next_parser = self.separator + self.parser ^ process_next
 
         next_result = result

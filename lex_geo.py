@@ -9,7 +9,6 @@ class Tags(Enum):
     PUNCT = "PUNCT"
     START = "START"
     END = "END"
-    MATH = "MATH"
     MATH_COMPARE = "MATH_COMPARE"
     MATH_POINT = "MATH_POINT"
     MATH_OBJECT = "MATH_OBJECT"
@@ -33,7 +32,7 @@ def lex_string(string):
     # not escaped, so don't use regex stuff
     # should only be letters anyway
     keywords = [
-        "let", "be", "a", "an", "the",
+        "let", "be", "a", "an", "the", "and",
         "quadrilateral", "triangle", "hexagon",
         "convex", "acute", "obtuse",
         "midpoint", "of"
