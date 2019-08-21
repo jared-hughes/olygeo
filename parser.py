@@ -237,6 +237,11 @@ class ExpSep(Parser):
                 result = next_result
         return result
 
+class ZeroWidth(Parser):
+    """ Just moves on with an empty match of None at same pos
+    Only use at the end of an alternate. Never repeat """
+    def __call__(self, tokens, pos):
+        return Result(None, pos)
 
 def indented(string):
     amount = 2

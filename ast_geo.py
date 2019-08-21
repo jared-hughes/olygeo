@@ -18,14 +18,6 @@ class Sentence:
 class Statement:
     pass
 
-class LetStatement(Statement):
-    def __init__(self, name, object):
-        self.name = name
-        self.object = object
-
-    def __repr__(self):
-        return "Let[%s, %s]"%(self.name, self.object)
-
 class ObjectBoolAdj:
     def __init__(self, adj):
         self.adj = adj
@@ -49,6 +41,21 @@ class Relation:
     def __repr__(self):
         return "Relation[%s, %s]"%(self.rel, self.objects)
 
+class Verb:
+    """ Relation but needs a noun to complete it
+
+    e.g. "meets A and B at C and D respectively" --> Verb("meets", [{A, B}, {C, D}])
+    """
+    def __init__(self, rel, objects):
+        self.rel = rel
+        self.objects = objects
+
+    def __repr__(self):
+        return "Verb[%s, %s]"%(self.rel, self.objects)
+
+    def add_noun(self, noun):
+        return Relation(self.rel, self.objects + [noun])
+
 class Distance:
     def __init__(self, point_1, point_2):
         self.point_1 = point_1
@@ -67,7 +74,7 @@ class CompareRelation(Relation):
     def __repr__(self):
         return "Relation[%s %s %s]"%(self.left, self.rel, self.right)
 
-class Construction:
+class Construction(Relation):
     """ M is the midpoint of BC """
     def __init__(self, rel, from_objects):
         self.rel = rel
@@ -76,21 +83,21 @@ class Construction:
     def __repr__(self):
         return "Construction[%s, %s]"%(self.rel, self.from_objects)
 
-class Reference:
+class ReferenceType:
     def __init__(self, name):
         self.name = name
 
     def __repr__(self):
-        return "Reference[%s]"%(self.name)
+        return "ReferenceType[%s]"%(self.name)
 
-class Point(Reference):
+class Point(ReferenceType):
     def __init__(self, name):
         self.name = name
 
     def __repr__(self):
         return "Point[%s]"%(self.name)
 
-class Segment(Reference):
+class Segment(ReferenceType):
     def __init__(self, point_1, point_2):
         self.point_1 = point_1
         self.point_2 = point_2
@@ -98,13 +105,29 @@ class Segment(Reference):
     def __repr__(self):
         return "Segment[%s, %s]"%(self.point_1, self.point_2)
 
-class Polygon(Reference):
+class Polygon(ReferenceType):
     def __init__(self, points):
         self.points = points
 
     def __repr__(self):
         return "Polygon[%s]"%(self.points)
 
-class Object(Reference):
+class Object(ReferenceType):
     """ e.g. \\omega """
     pass
+
+class Multi(ReferenceType):
+    """ e.g. A and B """
+    def __init__(self, objects):
+        self.objects = objects
+
+    def __repr__(self):
+        return "Multi[%s]"%(self.objects)
+
+class Reference(Statement):
+    def __init__(self, ref, adj_list):
+        self.ref = ref
+        self.adj_list = adj_list
+
+    def __repr__(self):
+        return "Reference[%s, %s]"%(self.ref, self.adj_list)

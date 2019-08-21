@@ -6,7 +6,6 @@ from test import test
 
 class Tags(Enum):
     RESERVED = "RESERVED"
-    PUNCT = "PUNCT"
     START = "START"
     END = "END"
     MATH_COMPARE = "MATH_COMPARE"
@@ -16,6 +15,19 @@ class Tags(Enum):
 class Modes(Enum):
     TEXT = "TEXT"
     MATH = "MATH"
+
+keywords = [
+    "let", "be", "a", "an", "the", "and",
+    "quadrilateral", "triangle", "hexagon", "circle",
+    "point", "points",
+    "convex", "acute", "obtuse",
+    "midpoint", "of",
+    "passing through", ",",
+    "meets", "at"
+]
+aux_reserved = [
+    "."
+]
 
 def lex_string(string):
     """ Lex a string into words, math split by sentences """
@@ -31,15 +43,8 @@ def lex_string(string):
     ]
     # not escaped, so don't use regex stuff
     # should only be letters anyway
-    keywords = [
-        "let", "be", "a", "an", "the", "and",
-        "quadrilateral", "triangle", "hexagon",
-        "convex", "acute", "obtuse",
-        "midpoint", "of"
-    ]
     text_token_exprs += map(lambda k: (r"\b%s\b"%k, Tags.RESERVED), keywords)
     text_token_exprs += [
-        (r'[,();!"#%&\'*+,-/:?@^_`{|}~]', Tags.PUNCT),
         # Ignore words
         (r'[a-zA-Z][a-z\-]*', None)
     ]
@@ -51,7 +56,7 @@ def lex_string(string):
         # sometimes end a sentence inside math
         (r'\.', Tags.RESERVED),
         # separate listing respectively
-        (r',', Tags.PUNCT),
+        (r',', Tags.RESERVED),
         # \\Omega
         (r'\\[A-Za-z][a-z]*(_[a-z0-9])?', Tags.MATH_OBJECT, False),
         # Ignore curly braces because most functions are just monadic with the exception of frac
