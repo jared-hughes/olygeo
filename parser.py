@@ -1,5 +1,20 @@
 # http://www.jayconrod.com/posts/38/a-simple-interpreter-from-scratch-in-python-part-2
 from math import inf
+from collections import Sequence
+
+def sequencify(ls):
+    # differentiate strings from OG sequences
+    if isinstance(ls, Sequence) and not isinstance(ls, str):
+        return ls
+    else:
+        return [ls]
+
+def listify(ls):
+    try:
+        # should return ls unmodified if ls is a list
+        return [] + ls
+    except:
+        return [ls]
 
 class Result:
     def __init__(self, value, pos):
@@ -81,6 +96,20 @@ class Tag(Parser):
         else:
             return None
 
+def signature(seq):
+    if isinstance(seq, tuple):
+        parts = []
+        for item in seq:
+            parts += [signature(item)]
+        return type(seq)(parts)
+    else:
+        return type(seq).__name__
+
+    try:
+        return "[%s]"%(", ".join(signature(item) for item in seq))
+    except:
+        return type(seq)
+
 class Concat(Parser):
     # AB
     def __init__(self, left, right):
@@ -92,7 +121,14 @@ class Concat(Parser):
         if left_result:
             right_result = self.right(tokens, left_result.pos)
             if right_result:
-                combined_value = (left_result.value, right_result.value)
+                left = tuple(sequencify(left_result.value))
+                right = tuple(sequencify(right_result.value))
+                print("---")
+                print(signature(left_result.value), signature(right_result.value), sep=" --- ")
+                print(left, right, sep=" --- ")
+                print(left + right, sep=" --- ")
+                # combined_value = (*listify(left_result.value), right_result.value)
+                combined_value = left + right
                 return Result(combined_value, right_result.pos)
         return None
 
@@ -252,4 +288,4 @@ def indented(string):
 
 # https://stackoverflow.com/q/21892989
 def star(f):
-  return lambda args: f(*args)
+    return lambda args: f(*args)

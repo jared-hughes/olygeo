@@ -22,11 +22,11 @@ keywords = [
     "point", "points",
     "convex", "acute", "obtuse",
     "midpoint", "of",
-    "passing through", ",",
+    "passing through",
     "meets", "at"
 ]
 aux_reserved = [
-    "."
+    ".", ","
 ]
 
 def lex_string(string):
@@ -40,6 +40,7 @@ def lex_string(string):
         # Skip whitespace
         (r'\s', None),
         (r'\.', Tags.RESERVED),
+        (r'\,', Tags.RESERVED),
     ]
     # not escaped, so don't use regex stuff
     # should only be letters anyway

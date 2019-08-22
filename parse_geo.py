@@ -5,13 +5,6 @@ from lex_geo import *
 import json
 from ast_geo import *
 
-def listify(ls):
-    try:
-        # should return ls unmodified if ls is a list
-        return [] + ls
-    except:
-        return [ls]
-
 def print_pass(tag):
     def _print_pass(x):
         print(tag, x)
@@ -49,7 +42,7 @@ def obj():
 
 def reference():
     def process_reference(x):
-        ((_, adj), ref), gerund = x
+        _, adj, ref, gerund = x
         all_adjs = AdjectiveList(adj.adj_list + [gerund])
         return Reference(ref, all_adjs)
 
@@ -59,15 +52,8 @@ def reference():
 def multi(parser, singular=None, plural=None):
     """ multi(point(), keyword("point"), keyword("points")) --> "point P", "P", "points P and Q" """
     def process_and(x):
-        (l, _r) = x
-        if _r is None:
-            return l
-        else:
-            (_, r) = _r
-            try:
-                return l + [r]
-            except:
-                return [l] + [r]
+        print(x)
+        return x[0:-3] + x[-1:]
     prefix = ZeroWidth()
     if singular:
         prefix = singular | prefix
@@ -78,7 +64,7 @@ def multi(parser, singular=None, plural=None):
             ((parser() * keyword(",") * (lambda l, r: listify(l) + listify(r))) \
             + Opt(Opt(keyword(",")) + keyword("and") + parser()) ^ process_and)
         )) \
-        ^ star(lambda _, r: Multi(r))
+        ^ print_pass("pre") ^ (lambda x: Multi(x[1:]))
 
 def multi_point():
     return multi(point, keyword("point"), keyword("points"))
@@ -104,7 +90,7 @@ def any_keyword(words):
 
 def midpoint():
     return keyword("midpoint") + keyword("of") + segment() \
-        ^ star(lambda _, obj: Relation("midpoint", [obj]))
+        ^ star(lambda _m, _o, segment: Relation("midpoint", [segment]))
 
 def relational_adj():
     return midpoint()
@@ -118,7 +104,7 @@ def gerund_adj():
 
 def meets():
     def process_meets(x):
-        (((_, refs), _), points) = x
+        _, refs, _, points = x
         return Verb("meets", [refs, points])
     # assume A meets B only at points
     return keyword("meets") + multi_reference() + keyword("at") + multi_point() \
@@ -143,12 +129,8 @@ def shape_adj_list():
     return Rep(shape_adj()) ^ (lambda x: AdjectiveList(x))
 
 def let_statement():
-    def process_let(x):
-        ((_, name), _), adjs = x
-        return Reference(name, adjs)
-
     return keyword("let") + reference() + keyword("be") + shape_adj_list() \
-        ^ process_let
+        ^ star(lambda _l, name, _b, adjs: Reference(name, adjs))
 
 def verb_statement():
     def process_verb_stmt(x):

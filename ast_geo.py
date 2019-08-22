@@ -122,7 +122,7 @@ class Multi(ReferenceType):
         self.objects = objects
 
     def __repr__(self):
-        return "Multi[%s]"%(self.objects)
+        return "Multi[%s]"%(str(self.objects))
 
 class Reference(Statement):
     def __init__(self, ref, adj_list):
