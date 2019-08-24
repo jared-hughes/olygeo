@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from geometry import Point
+from geometry import *
 
 class AbstractConstruction(ABC):
     @abstractmethod
@@ -24,6 +24,10 @@ class AbstractDependentConstruction(AbstractConstruction, ABC):
     @abstractmethod
     def _compute(self, objects):
         pass
+
+class SegmentConstruction(AbstractDependentConstruction):
+    def _compute(self, objects):
+        return Line(objects[0], objects[1])
 
 class MidpointConstruction(AbstractDependentConstruction):
     def _compute(self, objects):
