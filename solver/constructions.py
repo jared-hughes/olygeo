@@ -1,17 +1,28 @@
 from abc import ABC, abstractmethod
 from geometry import *
+from tools import distance, istypes, unsupported
 
 class AbstractConstruction(ABC):
     @abstractmethod
     def compute(self, points):
         pass
 
-class PointFrom(AbstractConstruction):
-    def __init__(self, point_name):
-        self.point_name = point_name
+class PrimitiveObject(AbstractConstruction):
+    def __init__(self, object_type, object_name, vals):
+        self.object_type = object_type
+        self.object_name = object_name
+        self.vals = vals
 
-    def compute(self, points):
-        return Point(points[self.point_name])
+    def set_vals(self, vals):
+        self.vals = vals
+
+    def compute(self, objects):
+        # print("objs", objects)
+        # print("osafjd", objects[self.object_name])
+        return self.object_type(*self.vals)
+
+    def __repr__(self):
+        return f"PrimitiveObject({self.object_type.__name__}, {self.object_name}, {self.vals})"
 
 class AbstractDependentConstruction(AbstractConstruction, ABC):
     def __init__(self, *objects):
@@ -19,7 +30,11 @@ class AbstractDependentConstruction(AbstractConstruction, ABC):
 
     def compute(self, points):
         objects = [object.compute(points) for object in self.objects]
-        return self._compute(objects)
+        computed = self._compute(objects)
+        if computed is not None:
+            return computed
+        else:
+            unsupported(self, objects)
 
     @abstractmethod
     def _compute(self, objects):
@@ -27,10 +42,10 @@ class AbstractDependentConstruction(AbstractConstruction, ABC):
 
 class SegmentConstruction(AbstractDependentConstruction):
     def _compute(self, objects):
-        return Line(objects[0], objects[1])
+        if istypes(objects, [Point, Point]):
+            return Line(*objects[0].pos, *objects[1].pos)
 
 class MidpointConstruction(AbstractDependentConstruction):
     def _compute(self, objects):
-        if len(objects) == 2 and isinstance(objects[0], Point) and isinstance(objects[1], Point):
+        if istypes(objects, [Point, Point]):
             return Point((objects[0].pos + objects[1].pos)/2)
-        assert False, "Cannot take midpoint of these objects"
