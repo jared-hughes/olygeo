@@ -1,7 +1,7 @@
 import numpy as np
 from abc import ABC, abstractmethod
-from geometry import *
-from tools import distance, istypes, unsupported
+from .geometry import *
+from .tools import distance, istypes, unsupported
 
 class AbstractConstraint(ABC):
     def __init__(self, *objects):

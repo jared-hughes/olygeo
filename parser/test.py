@@ -5,7 +5,7 @@ def ratio(success_count, attempt_count):
     return "%d/%d=%d%%"%(success_count, attempt_count, int(success_ratio*100))
 
 def test(func, get_parts):
-    with open("training_data/isl.json") as f:
+    with open("data/training/isl.json") as f:
         data = json.load(f)
     failures = []
     failure_count = 0

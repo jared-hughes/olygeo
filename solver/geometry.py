@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod, abstractproperty
 import numpy as np
+from ..parser.parser import *
 
 class AbstractObject(ABC):
     def __init__(self, *vals):
@@ -62,7 +63,7 @@ class Line(AbstractObject):
         return f"Segment({self.p1}, {self.p2})"
 
     def length(self):
-        from tools import distance
+        from .tools import distance
         return distance(self.p1, self.p2)
 
     def degrees_of_freedom():

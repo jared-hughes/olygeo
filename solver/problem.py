@@ -1,6 +1,6 @@
 import scipy.optimize as opt
 import numpy as np
-from constructions import PrimitiveObject
+from .constructions import PrimitiveObject
 import random
 
 class Problem:

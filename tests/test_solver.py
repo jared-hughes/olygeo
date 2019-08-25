@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-from problem import Problem
-from geometry import *
-from constraints import *
-from constructions import *
+from olygeo.solver.problem import Problem
+from olygeo.solver.geometry import *
+from olygeo.solver.constraints import *
+from olygeo.solver.constructions import *
 
 problem = Problem()
 A = problem.add_fixed_object("A", Point, 0, 0)

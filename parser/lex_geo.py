@@ -96,7 +96,7 @@ def test_math_lexing():
     # Successful cases: 38/52=73%
 
 if __name__ == '__main__':
-    with open("training_data/isl.json") as data_file:
+    with open("data/training/isl.json") as data_file:
         data = json.load(data_file)
     pp_lex(lex_case(data[0]))
     # test_math_lexing()

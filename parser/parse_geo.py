@@ -176,7 +176,7 @@ def test(parser, string):
     print(result)
 
 if __name__ == '__main__':
-    # with open("training_data/isl.json") as data_file:
+    # with open("data/training/isl.json") as data_file:
     #     data = json.load(data_file)
     # tokens = lex_case(data[0])
     # result = parse_geo(tokens)

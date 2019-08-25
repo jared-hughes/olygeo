@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from geometry import *
-from tools import distance, istypes, unsupported
+from .geometry import *
+from .tools import distance, istypes, unsupported
 
 class AbstractConstruction(ABC):
     @abstractmethod

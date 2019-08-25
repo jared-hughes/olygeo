@@ -1,5 +1,5 @@
 import numpy as np
-from geometry import Point
+from .geometry import Point
 
 def distance(a, b):
     # point-to-point
