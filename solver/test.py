@@ -6,9 +6,9 @@ from constructions import *
 
 problem = Problem()
 A = problem.add_fixed_object("A", Point, 0, 0)
-B = problem.add_param_object("B", Point, 10, 0)
+B = problem.add_param_object("B", Point)
 C = problem.add_fixed_object("C", Point, 5, 6)
-circ = problem.add_param_object("circ", Circle, 10, 0, 10)
+circ = problem.add_param_object("circ", Circle)
 # AB = CB
 problem.add_constraint(SameLengthConstraint(SegmentConstruction(A, B), SegmentConstruction(C, B)))
 # AB = 10

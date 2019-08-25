@@ -1,6 +1,7 @@
 import scipy.optimize as opt
 import numpy as np
 from constructions import PrimitiveObject
+import random
 
 class Problem:
     x0 = []
@@ -21,11 +22,16 @@ class Problem:
         return obj
 
     def add_fixed_object(self, object_name, object_type, *vals):
+        assert len(vals) == object_type.degrees_of_freedom()
         return self._add_object(object_name, object_type, *vals)
 
     def add_param_object(self, object_name, object_type, *vals):
-        self.object_names.append(object_name)
+        vals = list(vals)
         dof = object_type.degrees_of_freedom()
+        assert len(vals) <= dof
+        for i in range(dof - len(vals)):
+            vals.append(random.random())
+        self.object_names.append(object_name)
         self.n += dof
         self.object_dofs.append(dof)
         last = self.object_starts[-1]
