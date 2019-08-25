@@ -2,10 +2,11 @@
 
 def test_pygame():
     import olygeo.render.pygame
-    p = olygeo.render.pygame.Pygame("pygame render", 480, 640)
-    p.draw_segment(50, 50, 200, 550)
-    p.draw_point(400, 250)
+    p = olygeo.render.pygame.Pygame("pygame render", 640, 480)
+    p.draw_point("A", 200, 250)
+    p.draw_segment(50, 50, 200, 250)
     p.draw_circle(125, 150, 125)
+    p.draw_circle(50, 50, 50)
     p.finish_drawing()
 
 test_pygame()
