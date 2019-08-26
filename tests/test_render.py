@@ -9,4 +9,5 @@ def test_pygame():
     p.draw_circle(50, 50, 50)
     p.finish_drawing()
 
-test_pygame()
+if __name__ == "__main__":
+    test_pygame()

@@ -65,7 +65,7 @@ class Distance:
         return "Distance[%s, %s]"%(self.point_1, self.point_2)
 
 class CompareRelation(Relation):
-    """ e.g. AB=BC, AB=BC=CD """
+    """ e.g. :math:`AB=BC`, :math:`AB=BC=CD` """
     def __init__(self, rel, left, right):
         self.rel = rel
         self.left = left

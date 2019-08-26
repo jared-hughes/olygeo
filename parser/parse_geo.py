@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 from parser import *
 from functools import reduce
-from lex_geo import *
+from .lex_geo import *
 import json
-from ast_geo import *
+from .ast_geo import *
 
 def print_pass(tag):
     def _print_pass(x):

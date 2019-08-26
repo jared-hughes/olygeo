@@ -1,0 +1,182 @@
+Undocumented Python objects
+===========================
+olygeo.parser.ast_geo
+---------------------
+Classes:
+ * AdjectiveList
+ * Distance
+ * ObjectBoolAdj
+ * Point
+ * Polygon
+ * Reference
+ * ReferenceType
+ * Segment
+ * Sentence
+ * SentenceList
+ * Statement
+ * Verb -- missing methods:
+
+   - add_noun
+
+olygeo.parser.lex_geo
+---------------------
+Functions:
+ * lex_case
+ * test_math_lexing
+
+olygeo.parser.lexer
+-------------------
+Functions:
+ * lex
+
+olygeo.parser.parse_geo
+-----------------------
+Functions:
+ * any_keyword
+ * any_of
+ * article
+ * bool_adj
+ * compare_relation
+ * distance
+ * gerund_adj
+ * keyword
+ * let_statement
+ * math
+ * meets
+ * midpoint
+ * multi_point
+ * multi_reference
+ * obj
+ * parse_geo
+ * parser
+ * passing_through
+ * point
+ * polygon
+ * print_pass
+ * reference
+ * relational_adj
+ * segment
+ * sentence
+ * sentence_list
+ * shape_adj
+ * shape_adj_list
+ * stmt
+ * test
+ * test_math_parsing
+ * thing
+ * verb
+ * verb_statement
+
+olygeo.parser.parser
+--------------------
+Functions:
+ * indented
+ * listify
+ * sequencify
+ * signature
+ * star
+
+Classes:
+ * Alternate
+ * Concat
+ * Exp
+ * Lazy
+ * Opt
+ * Parser
+ * Phrase
+ * Process
+ * Rep
+ * RepMulti
+ * Reserved
+ * Result
+ * Tag
+
+olygeo.parser.test
+------------------
+Functions:
+ * ratio
+ * test
+
+olygeo.render.pygame
+--------------------
+Classes:
+ * Pygame -- missing methods:
+
+   - set_scale
+   - set_size
+
+olygeo.render.renderer
+----------------------
+Classes:
+ * Renderer -- missing methods:
+
+   - calculate_transforms
+   - draw_circle
+   - draw_point
+   - draw_segment
+   - expand_x
+   - expand_y
+   - finish_drawing
+   - place_label
+   - transform_length
+   - transform_point
+
+olygeo.solver.constraints
+-------------------------
+Classes:
+ * AbstractConstraint -- missing methods:
+
+   - error
+
+olygeo.solver.constructions
+---------------------------
+Classes:
+ * AbstractConstruction -- missing methods:
+
+   - compute
+ * AbstractDependentConstruction -- missing methods:
+
+   - compute
+ * PrimitiveObject -- missing methods:
+
+   - compute
+   - set_vals
+
+olygeo.solver.geometry
+----------------------
+Classes:
+ * AbstractObject -- missing methods:
+
+   - assign_props
+   - compute
+ * Circle -- missing methods:
+
+   - assign_props
+   - degrees_of_freedom
+ * Line -- missing methods:
+
+   - assign_props
+   - degrees_of_freedom
+   - length
+ * Number -- missing methods:
+
+   - assign_props
+   - degrees_of_freedom
+   - length
+ * Point -- missing methods:
+
+   - assign_props
+   - degrees_of_freedom
+
+olygeo.solver.problem
+---------------------
+Classes:
+ * Problem
+
+olygeo.solver.tools
+-------------------
+Functions:
+ * distance
+ * istypes
+ * unsupported
+

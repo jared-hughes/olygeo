@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-import lexer
+from .lexer import lex
 import json
 from enum import Enum
-from test import test
+from .test import test
 
 class Tags(Enum):
     RESERVED = "RESERVED"
@@ -75,7 +75,7 @@ def lex_string(string):
                 ("\$", Modes.TEXT)
             ]
     }
-    return lexer.lex(string, modes, Modes, Modes.TEXT, None, None, case_insensitive=True)
+    return lex(string, modes, Modes, Modes.TEXT, None, None, case_insensitive=True)
 
 def lex_case(case):
     return lex_string(case["content"])

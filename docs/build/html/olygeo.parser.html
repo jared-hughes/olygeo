@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>olygeo.parser package &mdash; Olygeo  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="olygeo.render package" href="olygeo.render.html" />
+    <link rel="prev" title="olygeo package" href="olygeo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Olygeo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">olygeo</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="olygeo.html">olygeo package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="olygeo.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">olygeo.parser package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="olygeo.render.html">olygeo.render package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="olygeo.solver.html">olygeo.solver package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="olygeo.html#module-olygeo">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Olygeo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">olygeo</a> &raquo;</li>
+        
+          <li><a href="olygeo.html">olygeo package</a> &raquo;</li>
+        
+      <li>olygeo.parser package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/olygeo.parser.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="olygeo-parser-package">
+<h1>olygeo.parser package<a class="headerlink" href="#olygeo-parser-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-olygeo.parser.ast_geo">
+<span id="olygeo-parser-ast-geo-module"></span><h2>olygeo.parser.ast_geo module<a class="headerlink" href="#module-olygeo.parser.ast_geo" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.CompareRelation">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">CompareRelation</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.CompareRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Relation" title="olygeo.parser.ast_geo.Relation"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Relation</span></code></a></p>
+<p>e.g. <span class="math notranslate nohighlight">\(AB=BC\)</span>, <span class="math notranslate nohighlight">\(AB=BC=CD\)</span></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Construction">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Construction</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">from_objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Construction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Relation" title="olygeo.parser.ast_geo.Relation"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Relation</span></code></a></p>
+<p>M is the midpoint of BC</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Multi">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Multi</code><span class="sig-paren">(</span><em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></p>
+<p>e.g. A and B</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Object">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Object</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></p>
+<p>e.g. omega</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Relation">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Relation</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Relation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>ABC is an acute triangle</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Verb">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Verb</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Verb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Relation but needs a noun to complete it</p>
+<p>e.g. “meets A and B at C and D respectively” –&gt; Verb(“meets”, [{A, B}, {C, D}])</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-olygeo.parser.lex_geo">
+<span id="olygeo-parser-lex-geo-module"></span><h2>olygeo.parser.lex_geo module<a class="headerlink" href="#module-olygeo.parser.lex_geo" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="olygeo.parser.lex_geo.Modes">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">Modes</code><a class="headerlink" href="#olygeo.parser.lex_geo.Modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>An enumeration.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.lex_geo.Tags">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">Tags</code><a class="headerlink" href="#olygeo.parser.lex_geo.Tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>An enumeration.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.lex_geo.lex_string">
+<code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">lex_string</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lex_geo.lex_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lex a string into words, math split by sentences</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.lex_geo.pp_lex">
+<code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">pp_lex</code><span class="sig-paren">(</span><em class="sig-param">lex</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lex_geo.pp_lex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pretty-prints the lex in human-readable form</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-olygeo.parser.lexer">
+<span id="olygeo-parser-lexer-module"></span><h2>olygeo.parser.lexer module<a class="headerlink" href="#module-olygeo.parser.lexer" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.jayconrod.com/posts/37/a-simple-interpreter-from-scratch-in-python-part-1">http://www.jayconrod.com/posts/37/a-simple-interpreter-from-scratch-in-python-part-1</a></p>
+</div>
+<div class="section" id="module-olygeo.parser.parse_geo">
+<span id="olygeo-parser-parse-geo-module"></span><h2>olygeo.parser.parse_geo module<a class="headerlink" href="#module-olygeo.parser.parse_geo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.multi">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">multi</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">singular=None</em>, <em class="sig-param">plural=None</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>multi(point(), keyword(“point”), keyword(“points”)) –&gt; “point P”, “P”, “points P and Q”</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-olygeo.parser.parser">
+<span id="olygeo-parser-parser-module"></span><h2>olygeo.parser.parser module<a class="headerlink" href="#module-olygeo.parser.parser" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="olygeo.parser.parser.ExpSep">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ExpSep</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">separator</em>, <em class="sig-param">sepfunc</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ExpSep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></p>
+<p>Also passes the separator to the sepfunc</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.ParserPair">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ParserPair</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ParserPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Serves only to deal with left-associative __mul__ operator for Parser</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.ZeroWidth">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ZeroWidth</code><a class="headerlink" href="#olygeo.parser.parser.ZeroWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></p>
+<p>Just moves on with an empty match of None at same pos
+Only use at the end of an alternate. Never repeat</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-olygeo.parser.test">
+<span id="olygeo-parser-test-module"></span><h2>olygeo.parser.test module<a class="headerlink" href="#module-olygeo.parser.test" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-olygeo.parser">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-olygeo.parser" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="olygeo.render.html" class="btn btn-neutral float-right" title="olygeo.render package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="olygeo.html" class="btn btn-neutral float-left" title="olygeo package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jared Hughes
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
