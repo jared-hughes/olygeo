@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -34,8 +33,10 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Credits" href="credits.html" />
     <link rel="prev" title="olygeo.render package" href="olygeo.render.html" /> 
 </head>
 
@@ -95,6 +96,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
 </ul>
 
             
@@ -177,8 +179,8 @@
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.solver.constraints.IntersectsConstraint">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constraints.</code><code class="sig-name descname">IntersectsConstraint</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constraints.IntersectsConstraint" title="Permalink to this definition">¶</a></dt>
+<dt id="olygeo.solver.constraints.SamePointConstraint">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constraints.</code><code class="sig-name descname">SamePointConstraint</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constraints.SamePointConstraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constraints.AbstractConstraint" title="olygeo.solver.constraints.AbstractConstraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constraints.AbstractConstraint</span></code></a></p>
 </dd></dl>
 
@@ -189,8 +191,8 @@
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.solver.constraints.SamePointConstraint">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constraints.</code><code class="sig-name descname">SamePointConstraint</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constraints.SamePointConstraint" title="Permalink to this definition">¶</a></dt>
+<dt id="olygeo.solver.constraints.IntersectsConstraint">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constraints.</code><code class="sig-name descname">IntersectsConstraint</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constraints.IntersectsConstraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constraints.AbstractConstraint" title="olygeo.solver.constraints.AbstractConstraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constraints.AbstractConstraint</span></code></a></p>
 </dd></dl>
 
@@ -204,26 +206,26 @@
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.solver.constructions.AbstractDependentConstruction">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constructions.</code><code class="sig-name descname">AbstractDependentConstruction</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constructions.AbstractDependentConstruction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constructions.AbstractConstruction" title="olygeo.solver.constructions.AbstractConstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constructions.AbstractConstruction</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="olygeo.solver.constructions.MidpointConstruction">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constructions.</code><code class="sig-name descname">MidpointConstruction</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constructions.MidpointConstruction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constructions.AbstractDependentConstruction" title="olygeo.solver.constructions.AbstractDependentConstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constructions.AbstractDependentConstruction</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
 <dt id="olygeo.solver.constructions.PrimitiveObject">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constructions.</code><code class="sig-name descname">PrimitiveObject</code><span class="sig-paren">(</span><em class="sig-param">object_type</em>, <em class="sig-param">object_name</em>, <em class="sig-param">vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constructions.PrimitiveObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constructions.AbstractConstruction" title="olygeo.solver.constructions.AbstractConstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constructions.AbstractConstruction</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
+<dt id="olygeo.solver.constructions.AbstractDependentConstruction">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constructions.</code><code class="sig-name descname">AbstractDependentConstruction</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constructions.AbstractDependentConstruction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constructions.AbstractConstruction" title="olygeo.solver.constructions.AbstractConstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constructions.AbstractConstruction</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
 <dt id="olygeo.solver.constructions.SegmentConstruction">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constructions.</code><code class="sig-name descname">SegmentConstruction</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constructions.SegmentConstruction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constructions.AbstractDependentConstruction" title="olygeo.solver.constructions.AbstractDependentConstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constructions.AbstractDependentConstruction</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.solver.constructions.MidpointConstruction">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.constructions.</code><code class="sig-name descname">MidpointConstruction</code><span class="sig-paren">(</span><em class="sig-param">*objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.constructions.MidpointConstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#olygeo.solver.constructions.AbstractDependentConstruction" title="olygeo.solver.constructions.AbstractDependentConstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.constructions.AbstractDependentConstruction</span></code></a></p>
 </dd></dl>
 
@@ -237,18 +239,6 @@
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.solver.geometry.Circle">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.geometry.</code><code class="sig-name descname">Circle</code><span class="sig-paren">(</span><em class="sig-param">*vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.geometry.Circle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.geometry.AbstractObject" title="olygeo.solver.geometry.AbstractObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.geometry.AbstractObject</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="olygeo.solver.geometry.Line">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.geometry.</code><code class="sig-name descname">Line</code><span class="sig-paren">(</span><em class="sig-param">*vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.geometry.Line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.geometry.AbstractObject" title="olygeo.solver.geometry.AbstractObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.geometry.AbstractObject</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
 <dt id="olygeo.solver.geometry.Number">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.geometry.</code><code class="sig-name descname">Number</code><span class="sig-paren">(</span><em class="sig-param">*vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.geometry.Number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#olygeo.solver.geometry.AbstractObject" title="olygeo.solver.geometry.AbstractObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.geometry.AbstractObject</span></code></a></p>
@@ -257,6 +247,18 @@
 <dl class="class">
 <dt id="olygeo.solver.geometry.Point">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.geometry.</code><code class="sig-name descname">Point</code><span class="sig-paren">(</span><em class="sig-param">*vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.geometry.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.geometry.AbstractObject" title="olygeo.solver.geometry.AbstractObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.geometry.AbstractObject</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.solver.geometry.Circle">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.geometry.</code><code class="sig-name descname">Circle</code><span class="sig-paren">(</span><em class="sig-param">*vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.geometry.Circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.solver.geometry.AbstractObject" title="olygeo.solver.geometry.AbstractObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.geometry.AbstractObject</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.solver.geometry.Line">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.solver.geometry.</code><code class="sig-name descname">Line</code><span class="sig-paren">(</span><em class="sig-param">*vals</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.solver.geometry.Line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#olygeo.solver.geometry.AbstractObject" title="olygeo.solver.geometry.AbstractObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.solver.geometry.AbstractObject</span></code></a></p>
 </dd></dl>
 
@@ -279,6 +281,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="credits.html" class="btn btn-neutral float-right" title="Credits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="olygeo.render.html" class="btn btn-neutral float-left" title="olygeo.render package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -316,7 +320,19 @@
   
   
     
-   
+  
+ <script type="text/javascript">
+    // https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
 
 </body>
 </html>

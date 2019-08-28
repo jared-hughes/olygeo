@@ -1,10 +1,13 @@
-#!/usr/bin/python3
+"""
+The core module for tokenizing geometry problems.
+"""
 from .lexer import lex
 import json
 from enum import Enum
 from .test import test
 
 class Tags(Enum):
+    """ Tags for Tokens """
     RESERVED = "RESERVED"
     START = "START"
     END = "END"
@@ -13,6 +16,7 @@ class Tags(Enum):
     MATH_OBJECT = "MATH_OBJECT"
 
 class Modes(Enum):
+    """ Different lexing modes """
     TEXT = "TEXT"
     MATH = "MATH"
 
@@ -25,12 +29,15 @@ keywords = [
     "passing through",
     "meets", "at"
 ]
+""" All keywords with respect to lexing. Other plain words are ignored """
+
 aux_reserved = [
     ".", ","
 ]
+""" Auxilary list of reserved words in addition to keywords """
 
 def lex_string(string):
-    """ Lex a string into words, math split by sentences """
+    """ Lex a geometry string into tokens, including math """
     # assume no dollar signs in sentences
     text_token_exprs = [
         # Ignore proposed by ...
@@ -78,13 +85,15 @@ def lex_string(string):
     return lex(string, modes, Modes, Modes.TEXT, None, None, case_insensitive=True)
 
 def lex_case(case):
+    """ For testing, lex a single case """
     return lex_string(case["content"])
 
 def pp_lex(lex):
-    """ Pretty-prints the lex in human-readable form """
+    """ Pretty-prints a list of tokens in human-readable form """
     print("\n".join(map(lambda k: "\t".join(map(str, k)), lex)))
 
 def test_math_lexing():
+    """ Unit tests the lexing of math """
     import re
     def get_math(content):
         return re.findall("\$[^$]*\$", content)
@@ -94,9 +103,3 @@ def test_math_lexing():
 
     # Successful parts: 865/892=96%
     # Successful cases: 38/52=73%
-
-if __name__ == '__main__':
-    with open("data/training/isl.json") as data_file:
-        data = json.load(data_file)
-    pp_lex(lex_case(data[0]))
-    # test_math_lexing()

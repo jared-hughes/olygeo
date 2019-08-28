@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -34,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="olygeo" href="modules.html" /> 
@@ -83,6 +83,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">olygeo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
 </ul>
 
             
@@ -155,14 +156,43 @@
 <li class="toctree-l1"><a class="reference internal" href="modules.html">olygeo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="olygeo.html">olygeo package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="olygeo.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="olygeo.parser.html">olygeo.parser package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="olygeo.render.html">olygeo.render package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="olygeo.solver.html">olygeo.solver package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="olygeo.parser.html">olygeo.parser package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser.ast_geo">olygeo.parser.ast_geo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser.lex_geo">olygeo.parser.lex_geo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser.lexer">olygeo.parser.lexer module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser.parse_geo">olygeo.parser.parse_geo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser.parser">olygeo.parser.parser module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser.test">olygeo.parser.test module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.parser.html#module-olygeo.parser">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="olygeo.render.html">olygeo.render package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.render.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.render.html#module-olygeo.render.pygame">olygeo.render.pygame module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.render.html#module-olygeo.render.renderer">olygeo.render.renderer module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.render.html#module-olygeo.render">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="olygeo.solver.html">olygeo.solver package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#module-olygeo.solver.constraints">olygeo.solver.constraints module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#module-olygeo.solver.constructions">olygeo.solver.constructions module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#module-olygeo.solver.geometry">olygeo.solver.geometry module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#module-olygeo.solver.problem">olygeo.solver.problem module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#module-olygeo.solver.tools">olygeo.solver.tools module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="olygeo.solver.html#module-olygeo.solver">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="olygeo.html#module-olygeo">Module contents</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credits.html#imp-interpreter">imp-interpreter</a></li>
 </ul>
 </li>
 </ul>
@@ -221,7 +251,19 @@
   
   
     
-   
+  
+ <script type="text/javascript">
+    // https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
 
 </body>
 </html>

@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'sphinx.ext.mathjax',
+    'sphinx.ext.doctest',
     'sphinx.ext.napoleon'
 ]
 
@@ -80,6 +80,9 @@ pygments_style = None
 
 
 # -- Options for HTML output -------------------------------------------------
+
+def setup(app):
+    app.add_stylesheet('custom.css')
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -194,3 +197,14 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+# -- Options for autodoc extensions -------------------------------------------
+
+autodoc_default_options = {
+    "members": True,
+    "member-order": "bysource",
+    "private-members": True,
+    "special-members": True,
+    "show-inheritance": True,
+    "exclude-members": "__init__, __repr__, __weakref__"
+}

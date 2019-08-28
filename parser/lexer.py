@@ -1,9 +1,39 @@
-""" http://www.jayconrod.com/posts/37/a-simple-interpreter-from-scratch-in-python-part-1 """
+"""
+Provides a single function to tokenize based on a given grammar.
+
+Modified from :ref:`parser-credits`.
+"""
 
 import re
 import sys
 
 def lex(characters, modes, mode_types, start_mode, tag_start, tag_end, case_insensitive=False):
+    """
+    Tokenize a string
+
+    Parameters
+    ----------
+    characters: str | list of chars
+        The string to tokenize
+    modes:
+        Main specification of the grammar
+
+        Should be a dictionary from modes to lists of pairs ``(regex, effect)``
+        such as ::
+
+            {
+                mode_1: [
+                    (regex_1, tag_1),
+                    (regex_2, tag_2),
+                    (regex_3, mode_1)
+                ],
+                mode_2: [ ... ]
+            }
+
+        If ``effect`` is a member of mode_types, such as with ``(regex_3, mode_1)``
+        here, the mode transitions to to the mode.
+        Otherwise a token emitted with the matched text and the given tag.
+    """
     pos = 0
     tokens = []
     # mod: compile everything first for my own sanity

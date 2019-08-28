@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -34,6 +33,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="olygeo.render package" href="olygeo.render.html" />
@@ -96,6 +96,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
 </ul>
 
             
@@ -171,119 +172,1112 @@
 </div>
 <div class="section" id="module-olygeo.parser.ast_geo">
 <span id="olygeo-parser-ast-geo-module"></span><h2>olygeo.parser.ast_geo module<a class="headerlink" href="#module-olygeo.parser.ast_geo" title="Permalink to this headline">¶</a></h2>
+<p>Data classes for the geometry Abstract Syntax Tree (AST), where the results
+of parsing are stored</p>
 <dl class="class">
-<dt id="olygeo.parser.ast_geo.CompareRelation">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">CompareRelation</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.CompareRelation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Relation" title="olygeo.parser.ast_geo.Relation"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Relation</span></code></a></p>
-<p>e.g. <span class="math notranslate nohighlight">\(AB=BC\)</span>, <span class="math notranslate nohighlight">\(AB=BC=CD\)</span></p>
+<dt id="olygeo.parser.ast_geo.SentenceList">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">SentenceList</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.SentenceList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A list (tree) of sentences</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.parser.ast_geo.Construction">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Construction</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">from_objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Construction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Relation" title="olygeo.parser.ast_geo.Relation"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Relation</span></code></a></p>
-<p>M is the midpoint of BC</p>
+<dt id="olygeo.parser.ast_geo.Sentence">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Sentence</code><span class="sig-paren">(</span><em class="sig-param">things</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Sentence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A sentence, which may have several statements</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.parser.ast_geo.Multi">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Multi</code><span class="sig-paren">(</span><em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Multi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></p>
-<p>e.g. A and B</p>
+<dt id="olygeo.parser.ast_geo.Statement">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Statement</code><a class="headerlink" href="#olygeo.parser.ast_geo.Statement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A statement, which can contain several relations</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="olygeo.parser.ast_geo.Object">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Object</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></p>
-<p>e.g. omega</p>
+<dt id="olygeo.parser.ast_geo.ObjectBoolAdj">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">ObjectBoolAdj</code><span class="sig-paren">(</span><em class="sig-param">adj</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.ObjectBoolAdj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A boolean adjective that can apply to a shape</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.AdjectiveList">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">AdjectiveList</code><span class="sig-paren">(</span><em class="sig-param">adj_list</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.AdjectiveList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A list of adjectives that can apply to a shape</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="olygeo.parser.ast_geo.Relation">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Relation</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Relation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>ABC is an acute triangle</p>
+<p>A relation that specifies a constraint based on several objecs</p>
+<p>e.g. ABC is an acute triangle</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="olygeo.parser.ast_geo.Verb">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Verb</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Verb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Relation but needs a noun to complete it</p>
-<p>e.g. “meets A and B at C and D respectively” –&gt; Verb(“meets”, [{A, B}, {C, D}])</p>
+<p>A relation lacking a noun to complete it</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apply_parser</span><span class="p">(</span><span class="n">meets</span><span class="p">(),</span> <span class="s2">&quot;meets $A$ and $B$ at $C$ and $D$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">Verb[meets, [Multi[[Reference[Point[A], AdjList[[None]]], Reference[Point[B], AdjList[[None]]]]], Multi[[Point[C], Point[D]]]]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Distance">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Distance</code><span class="sig-paren">(</span><em class="sig-param">point_1</em>, <em class="sig-param">point_2</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A distance between two points</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.CompareRelation">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">CompareRelation</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.CompareRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Relation" title="olygeo.parser.ast_geo.Relation"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Relation</span></code></a></p>
+<p>A relation between two objects, usually distances</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apply_parser</span><span class="p">(</span><span class="n">compare_relation</span><span class="p">(),</span> <span class="s2">&quot;$AB&lt;CD=EF$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">Relation[Relation[Distance[Point[A], Point[B]] &lt; Distance[Point[C], Point[D]]] = Distance[Point[E], Point[F]]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Construction">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Construction</code><span class="sig-paren">(</span><em class="sig-param">rel</em>, <em class="sig-param">from_objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Construction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Relation" title="olygeo.parser.ast_geo.Relation"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Relation</span></code></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">M</span></code> is the midpoint of <code class="docutils literal notranslate"><span class="pre">BC</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.ReferenceType">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">ReferenceType</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.ReferenceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A reference to an object by name</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Point">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Point</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.ReferenceType" title="olygeo.parser.ast_geo.ReferenceType"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></a></p>
+<p>A point</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Segment">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Segment</code><span class="sig-paren">(</span><em class="sig-param">point_1</em>, <em class="sig-param">point_2</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.ReferenceType" title="olygeo.parser.ast_geo.ReferenceType"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></a></p>
+<p>A segment between two points</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Polygon">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Polygon</code><span class="sig-paren">(</span><em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.ReferenceType" title="olygeo.parser.ast_geo.ReferenceType"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></a></p>
+<p>A polygon from many points</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Object">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Object</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.ReferenceType" title="olygeo.parser.ast_geo.ReferenceType"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></a></p>
+<p>An object with a special name such as <code class="docutils literal notranslate"><span class="pre">&quot;\\omega&quot;</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Multi">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Multi</code><span class="sig-paren">(</span><em class="sig-param">objects</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.ReferenceType" title="olygeo.parser.ast_geo.ReferenceType"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.ReferenceType</span></code></a></p>
+<p>A set of several objects such as <code class="docutils literal notranslate"><span class="pre">&quot;A</span> <span class="pre">and</span> <span class="pre">B&quot;</span></code></p>
+<p>Operations on <code class="docutils literal notranslate"><span class="pre">Multi</span></code>-s should vectorize in many cases but have different
+handling methods</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.ast_geo.Reference">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.ast_geo.</code><code class="sig-name descname">Reference</code><span class="sig-paren">(</span><em class="sig-param">ref</em>, <em class="sig-param">adj_list</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.ast_geo.Reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.ast_geo.Statement" title="olygeo.parser.ast_geo.Statement"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.ast_geo.Statement</span></code></a></p>
+<p>A reference to an object with an adjective list</p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-olygeo.parser.lex_geo">
 <span id="olygeo-parser-lex-geo-module"></span><h2>olygeo.parser.lex_geo module<a class="headerlink" href="#module-olygeo.parser.lex_geo" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="olygeo.parser.lex_geo.Modes">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">Modes</code><a class="headerlink" href="#olygeo.parser.lex_geo.Modes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>An enumeration.</p>
-</dd></dl>
-
+<p>The core module for tokenizing geometry problems.</p>
 <dl class="class">
 <dt id="olygeo.parser.lex_geo.Tags">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">Tags</code><a class="headerlink" href="#olygeo.parser.lex_geo.Tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
-<p>An enumeration.</p>
+<p>Tags for Tokens</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.lex_geo.Modes">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">Modes</code><a class="headerlink" href="#olygeo.parser.lex_geo.Modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>Different lexing modes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="olygeo.parser.lex_geo.keywords">
+<code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">keywords</code><em class="property"> = ['let', 'be', 'a', 'an', 'the', 'and', 'quadrilateral', 'triangle', 'hexagon', 'circle', 'point', 'points', 'convex', 'acute', 'obtuse', 'midpoint', 'of', 'passing through', 'meets', 'at']</em><a class="headerlink" href="#olygeo.parser.lex_geo.keywords" title="Permalink to this definition">¶</a></dt>
+<dd><p>All keywords with respect to lexing. Other plain words are ignored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="olygeo.parser.lex_geo.aux_reserved">
+<code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">aux_reserved</code><em class="property"> = ['.', ',']</em><a class="headerlink" href="#olygeo.parser.lex_geo.aux_reserved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auxilary list of reserved words in addition to keywords</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="olygeo.parser.lex_geo.lex_string">
 <code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">lex_string</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lex_geo.lex_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lex a string into words, math split by sentences</p>
+<dd><p>Lex a geometry string into tokens, including math</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.lex_geo.lex_case">
+<code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">lex_case</code><span class="sig-paren">(</span><em class="sig-param">case</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lex_geo.lex_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>For testing, lex a single case</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="olygeo.parser.lex_geo.pp_lex">
 <code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">pp_lex</code><span class="sig-paren">(</span><em class="sig-param">lex</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lex_geo.pp_lex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pretty-prints the lex in human-readable form</p>
+<dd><p>Pretty-prints a list of tokens in human-readable form</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.lex_geo.test_math_lexing">
+<code class="sig-prename descclassname">olygeo.parser.lex_geo.</code><code class="sig-name descname">test_math_lexing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lex_geo.test_math_lexing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unit tests the lexing of math</p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-olygeo.parser.lexer">
 <span id="olygeo-parser-lexer-module"></span><h2>olygeo.parser.lexer module<a class="headerlink" href="#module-olygeo.parser.lexer" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://www.jayconrod.com/posts/37/a-simple-interpreter-from-scratch-in-python-part-1">http://www.jayconrod.com/posts/37/a-simple-interpreter-from-scratch-in-python-part-1</a></p>
+<p>Provides a single function to tokenize based on a given grammar.</p>
+<p>Modified from <a class="reference internal" href="credits.html#parser-credits"><span class="std std-ref">imp-interpreter</span></a>.</p>
+<dl class="function">
+<dt id="olygeo.parser.lexer.lex">
+<code class="sig-prename descclassname">olygeo.parser.lexer.</code><code class="sig-name descname">lex</code><span class="sig-paren">(</span><em class="sig-param">characters</em>, <em class="sig-param">modes</em>, <em class="sig-param">mode_types</em>, <em class="sig-param">start_mode</em>, <em class="sig-param">tag_start</em>, <em class="sig-param">tag_end</em>, <em class="sig-param">case_insensitive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.lexer.lex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenize a string</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>characters</strong> (<em>str | list of chars</em>) – The string to tokenize</p></li>
+<li><p><strong>modes</strong> – Main specification of the grammar</p>
+<p>Should be a dictionary from modes to lists of pairs <code class="docutils literal notranslate"><span class="pre">(regex,</span> <span class="pre">effect)</span></code>
+such as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">mode_1</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">tag_1</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">tag_2</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">mode_1</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">mode_2</span><span class="p">:</span> <span class="p">[</span> <span class="o">...</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">effect</span></code> is a member of mode_types, such as with <code class="docutils literal notranslate"><span class="pre">(regex_3,</span> <span class="pre">mode_1)</span></code>
+here, the mode transitions to to the mode.
+Otherwise a token emitted with the matched text and the given tag.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-olygeo.parser.parse_geo">
 <span id="olygeo-parser-parse-geo-module"></span><h2>olygeo.parser.parse_geo module<a class="headerlink" href="#module-olygeo.parser.parse_geo" title="Permalink to this headline">¶</a></h2>
+<p>The core module for parsing geometry as a sentence</p>
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.print_pass">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">print_pass</code><span class="sig-paren">(</span><em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.print_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a function to Process a Parser with that acts as a print statement</p>
+<p>Use to print the value of a parser without affecting it</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apply_parser</span><span class="p">((</span><span class="n">point</span><span class="p">()</span> <span class="o">^</span> <span class="n">print_pass</span><span class="p">(</span><span class="s2">&quot;first point&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="n">point</span><span class="p">(),</span> <span class="s2">&quot;$P$ $Q$&quot;</span><span class="p">)</span>
+<span class="go">first point Point[P]</span>
+<span class="go">Result(</span>
+<span class="go">  [Point[P], Point[Q]]</span>
+<span class="go">2)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.article">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">article</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.article" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any article (‘a’, ‘an’, or ‘the’)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.keyword">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">keyword</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.keyword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a keyword</p>
+<p class="rubric">Notes</p>
+<p>A keyword is any word that affects parsing. Other words outside math
+get ignored</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.7)"><strong>AssertionError</strong></a> – If key is not listed as a keyword in <a class="reference internal" href="#module-olygeo.parser.lex_geo" title="olygeo.parser.lex_geo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">olygeo.parser.lex_geo</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.point">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a point</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.segment">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">segment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a segment</p>
+<p class="rubric">Notes</p>
+<p>A segment is two consecutive points.
+Segments are differentiated from distances by context</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.distance">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">distance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a distance</p>
+<p class="rubric">Notes</p>
+<p>A distance is two consecutive points.
+Segments are differentiated from distances by context</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.compare_relation">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">compare_relation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.compare_relation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a compare relation</p>
+<p class="rubric">Notes</p>
+<p>A compare relation is an inequality between two distances</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.polygon">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">polygon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any polygon</p>
+<p class="rubric">Notes</p>
+<p>A polygon consists of 3 to 8 consecutive points</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.obj">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">obj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any object, such as $omega$</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.reference">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">reference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for an object reference.</p>
+<p class="rubric">Notes</p>
+<p>A reference is any shape, possibly combined with an article, adjectives,
+or gerund adjectives</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="olygeo.parser.parse_geo.multi">
 <code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">multi</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">singular=None</em>, <em class="sig-param">plural=None</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.multi" title="Permalink to this definition">¶</a></dt>
-<dd><p>multi(point(), keyword(“point”), keyword(“points”)) –&gt; “point P”, “P”, “points P and Q”</p>
+<dd><p>Return a parser for multiple of another parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser</strong> – The parser that can be repeated.</p></li>
+<li><p><strong>singular, plural</strong> – Singular and plural forms of the name of the object</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">apply_parser</span><span class="p">(</span><span class="n">multi_point</span><span class="p">(),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">Multi[[Point[P]]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apply_parser</span><span class="p">(</span><span class="n">multi_point</span><span class="p">(),</span> <span class="s2">&quot;point $P$ and $Q$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">Multi[[Point[P], Point[Q]]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apply_parser</span><span class="p">(</span><span class="n">multi_point</span><span class="p">(),</span> <span class="s2">&quot;$P$, $Q$, and $R$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">Multi[[Point[P], Point[Q], Point[R]]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.multi_point">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">multi_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.multi_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for multiple of a point.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.multi_reference">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">multi_reference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.multi_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for multiple of a reference.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.math">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">math</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.math" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any math item.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.thing">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">thing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.thing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser to match roughly anything: math or any reserved word.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.any_of">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">any_of</code><span class="sig-paren">(</span><em class="sig-param">words</em>, <em class="sig-param">tag</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.any_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any token with a given tag and given value set.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.any_keyword">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">any_keyword</code><span class="sig-paren">(</span><em class="sig-param">words</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.any_keyword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any reserved word with value from a given set.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.midpoint">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">midpoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.midpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for the relational adjective “midpoint.”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.relational_adj">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">relational_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.relational_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a relational adjective.</p>
+<p class="rubric">Notes</p>
+<p>A relational adjective is an adjective that specifies a constraint on a
+shape given some other shapes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.passing_through">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">passing_through</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.passing_through" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for the gerund adjective “passing through”.</p>
+<p class="rubric">Notes</p>
+<p>The gerund adjective “passing through” specifies that the subject shape
+intersects the object shape at at least one point</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.gerund_adj">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">gerund_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.gerund_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a gerund adjective.</p>
+<p class="rubric">Notes</p>
+<p>A gerund adjective is an adjective ending in “-ing” that can be tacked
+on after a shape</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.meets">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">meets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.meets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for the verb “meets.”</p>
+<p class="rubric">Notes</p>
+<p>The verb meets specifies that the subject shapes intersects its first object
+at its second object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.verb">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">verb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.verb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for any verb, which can be used in a verb statement.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.bool_adj">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">bool_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.bool_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a boolean adjective that can describe a shape.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.shape_adj">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">shape_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.shape_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a single adjective that can describe a shape.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.shape_adj_list">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">shape_adj_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.shape_adj_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a list of adjectives that can describe a shape.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.let_statement">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">let_statement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.let_statement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a let statement.</p>
+<p class="rubric">Notes</p>
+<p>A let statement has a single subject shape which receives one or more
+adjectives which specify constraints</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.verb_statement">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">verb_statement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.verb_statement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a verb statement.</p>
+<p class="rubric">Notes</p>
+<p>A verb statement has a single subject shape which may act on any number of
+objects with a specific action</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.stmt">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">stmt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.stmt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a statement.</p>
+<p class="rubric">Notes</p>
+<p>A statement directly specifies one or more constraints and can only be
+combined to AND components together</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.sentence">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">sentence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.sentence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a sentence.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.sentence_list">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">sentence_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.sentence_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for a list of sentences.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.geo_parser">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">geo_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.geo_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a parser for sentences that spans the whole input token list.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.parse_geo">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">parse_geo</code><span class="sig-paren">(</span><em class="sig-param">tokens</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.parse_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse tokens from a geometry string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tokens</strong> – the tokens to parse</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>AST</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.test_math_parsing">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">test_math_parsing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.test_math_parsing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the parsing of all math sequences</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parse_geo.apply_parser">
+<code class="sig-prename descclassname">olygeo.parser.parse_geo.</code><code class="sig-name descname">apply_parser</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parse_geo.apply_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a string with a specific parser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser</strong> – the name of the parser to test</p></li>
+<li><p><strong>string</strong> (<em>str</em>) – single string to tokenize and test</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>AST</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
 <div class="section" id="module-olygeo.parser.parser">
 <span id="olygeo-parser-parser-module"></span><h2>olygeo.parser.parser module<a class="headerlink" href="#module-olygeo.parser.parser" title="Permalink to this headline">¶</a></h2>
+<p>Provides classes to create a hardcoded grammar to parse with</p>
+<p>Modified from <a class="reference internal" href="credits.html#parser-credits"><span class="std std-ref">imp-interpreter</span></a>.</p>
+<dl class="function">
+<dt id="olygeo.parser.parser.sequencify">
+<code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">sequencify</code><span class="sig-paren">(</span><em class="sig-param">ls</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.sequencify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap any string or non-sequence into a list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parser.listify">
+<code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">listify</code><span class="sig-paren">(</span><em class="sig-param">ls</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.listify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap any non-list into a list</p>
+</dd></dl>
+
 <dl class="class">
-<dt id="olygeo.parser.parser.ExpSep">
-<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ExpSep</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">separator</em>, <em class="sig-param">sepfunc</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ExpSep" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></p>
-<p>Also passes the separator to the sepfunc</p>
+<dt id="olygeo.parser.parser.Result">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Result</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Result of a partial parse</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – The captured value from the partial parse</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – The number of characters parsed to get this result</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.IgnoredResult">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">IgnoredResult</code><span class="sig-paren">(</span><em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.IgnoredResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Result</span></code></a></p>
+<p>A Result that is ignored when Concat’d to something else</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="olygeo.parser.parser.ParserPair">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ParserPair</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ParserPair" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A pair of parsers</p>
 <p>Serves only to deal with left-associative __mul__ operator for Parser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>left, right</strong> – The parsers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Parser">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Parser</code><a class="headerlink" href="#olygeo.parser.parser.Parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>A parser that updates position when parsing and gives Results</p>
+<p class="rubric">Notes</p>
+<p>Observe that combining operators follows operator preference
+<a class="reference external" href="https://docs.python.org/3/reference/expressions.html#operator-precedence">https://docs.python.org/3/reference/expressions.html#operator-precedence</a>,
+notably:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>: <a class="reference internal" href="#olygeo.parser.parser.Alternate" title="olygeo.parser.parser.Alternate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alternate</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>: <a class="reference internal" href="#olygeo.parser.parser.Process" title="olygeo.parser.parser.Process"><code class="xref py py-class docutils literal notranslate"><span class="pre">Process</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>: <a class="reference internal" href="#olygeo.parser.parser.Concat" title="olygeo.parser.parser.Concat"><code class="xref py py-class docutils literal notranslate"><span class="pre">Concat</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: <a class="reference internal" href="#olygeo.parser.parser.Exp" title="olygeo.parser.parser.Exp"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exp</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code>: <a class="reference internal" href="#olygeo.parser.parser.ExpSep" title="olygeo.parser.parser.ExpSep"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExpSep</span></code></a></p></li>
+</ol>
+</div></blockquote>
+<dl class="method">
+<dt id="olygeo.parser.parser.Parser.__call__">
+<em class="property">abstract </em><code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Parser.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="olygeo.parser.parser.Parser.__add__">
+<code class="sig-name descname">__add__</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Parser.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate two Parser objects together (+)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="olygeo.parser.parser.Parser.__mul__">
+<code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Parser.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an Exp</p>
+<p class="rubric">Notes</p>
+<p>This uses a triadic combination</p>
+<blockquote>
+<div><p>parser1() * separator() * cumulation_function()</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="olygeo.parser.parser.Parser.__pow__">
+<code class="sig-name descname">__pow__</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Parser.__pow__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an ExpSep</p>
+<p class="rubric">Notes</p>
+<p>This uses a triadic combination</p>
+<blockquote>
+<div><p>parser1() ** separator() ** cumulation_function()</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="olygeo.parser.parser.Parser.__or__">
+<code class="sig-name descname">__or__</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Parser.__or__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take the Alternate of two Parser objects (|)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="olygeo.parser.parser.Parser.__xor__">
+<code class="sig-name descname">__xor__</code><span class="sig-paren">(</span><em class="sig-param">function</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Parser.__xor__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take the Process of a Parser object and a function</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Ignored">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Ignored</code><span class="sig-paren">(</span><em class="sig-param">parser</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Ignored" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser which ignores returned results</p>
+<p>This only makes sense in the context of Concat, which will not append
+results from an Ignored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parser</strong> (<em>Parser</em>) – the parser whose results are to be ignored</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Ignored.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Ignored.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the parser, except whose value is ignored</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.IgnoredResult" title="olygeo.parser.parser.IgnoredResult">IgnoredResult</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Reserved">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Reserved</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">tag</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Reserved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser matching a specific value and tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em>) – The value from the lexer to be matched</p></li>
+<li><p><strong>tag</strong> (<a class="reference internal" href="#olygeo.parser.lex_geo.Tags" title="olygeo.parser.lex_geo.Tags"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.lex_geo.Tags</span></code></a>) – The tag from the lexer to be matched</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Reserved.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Reserved.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A result whose value is the string value of the token matched</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Tag">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Tag</code><span class="sig-paren">(</span><em class="sig-param">tag</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser matching a specific tag with any value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">lex_geo.Tags</span></code>) – The tag from the lexer to be matched</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Tag.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Tag.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A result whose value is the string value of the token matched</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parser.signature">
+<code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">signature</code><span class="sig-paren">(</span><em class="sig-param">seq</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>The signature of a (nested) tuple for debugging</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Concat">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Concat</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser matching two parsers in a row.</p>
+<p>Equivalent to XY in regex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>left, right</strong> (<em>Parser</em>) – The parsers on the left and the right to be concatenated together</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Concat.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Concat.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The results of the left and right parsers appended to each other.
+This will return a single list, not a nested list based on
+associativity</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Alternate">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Alternate</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Alternate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser matching either one parser or the other.</p>
+<p>Equivalent to X|Y in regex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>left, right</strong> – The parsers, one of which must be matched for the Alternate to match</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Alternate.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Alternate.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the parser which matches, with the first parser
+taking precedence over the second.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Opt">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Opt</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">ignored_on_unmatch=False</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Opt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser matching 1 or 0 of a parser.</p>
+<p>Equivalent to X? in regex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parser</strong> (<em>Parser</em>) – The parser which may be matched</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Opt.failure">
+<code class="sig-name descname">failure</code><span class="sig-paren">(</span><em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Opt.failure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Result with None value</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="olygeo.parser.parser.Opt.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Opt.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the parser if matched, or the result of <a class="reference internal" href="#olygeo.parser.parser.Opt.failure" title="olygeo.parser.parser.Opt.failure"><code class="xref py py-func docutils literal notranslate"><span class="pre">failure()</span></code></a>
+otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.IOpt">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">IOpt</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">ignored_on_unmatch=False</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.IOpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Opt" title="olygeo.parser.parser.Opt"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Opt</span></code></a></p>
+<dl class="method">
+<dt id="olygeo.parser.parser.IOpt.failure">
+<code class="sig-name descname">failure</code><span class="sig-paren">(</span><em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.IOpt.failure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Result that gets ignored in Concat</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.IgnoredResult" title="olygeo.parser.parser.IgnoredResult">IgnoredResult</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Rep">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Rep</code><span class="sig-paren">(</span><em class="sig-param">parser</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Rep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser that matches any number of another parser (including 0)</p>
+<p>Equivalent to X* in regex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parser</strong> (<em>Parser</em>) – The parser to be matches a number of times</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Rep.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Rep.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of all the results matched by parser</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of Result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.RepMulti">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">RepMulti</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">min_reps=1</em>, <em class="sig-param">max_reps=inf</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.RepMulti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser that matches another parser a number of times within a range</p>
+<p>Equivalent to X{min_reps, max_reps} in regex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser</strong> (<em>Parser</em>) – The parser to be matches a number of times</p></li>
+<li><p><strong>min_reps, max_reps</strong> (<em>int</em>) – The minimum and maximum number of repetitions, inclusive</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.RepMulti.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.RepMulti.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Process">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Process</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">function</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser that applies a function to the Result of a parser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser</strong> (<em>Parser</em>) – The parser to match</p></li>
+<li><p><strong>function</strong> – The function to be applied to the result</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Process.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Process.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>function applied to the result of parser except when the result is
+None, at which point None is returned</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#olygeo.parser.parser.Result" title="olygeo.parser.parser.Result">Result</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Lazy">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Lazy</code><span class="sig-paren">(</span><em class="sig-param">parser_func</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Lazy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser to delay generation of parser until runtime to allow recursion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parser_func</strong> – A function that returns a parser to use</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Lazy.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Lazy.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>The result of the parser from parser_func()</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Phrase">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Phrase</code><span class="sig-paren">(</span><em class="sig-param">parser</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Phrase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser that matches only when matching the full input stream of tokens</p>
+<p>Equivalent to X$ in regex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parser</strong> (<em>Parser</em>) – Parser to match fully</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Phrase.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Phrase.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>The result of the parser if successful and its match lasts the full</em></p></li>
+<li><p><em>input stream, otherwise None</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.Exp">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">Exp</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">separator</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser that matches another parser joined by a specific parser</p>
+<p>Equivalent to A(BA)* in regex but avoids left recursion</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>parser</strong> (<em>Parser</em>) – Main parser</p></li>
+<li><p><strong>separator</strong> (<em>Process</em>) – Parser that matches token sequences that join the sequence.
+The function of separator should take left and right values and
+return a new value. A sane choice of function would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">ListAST</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.Exp.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.Exp.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>The result of the function from <code class="docutils literal notranslate"><span class="pre">separator</span></code> applied left to right</p></li>
+<li><p>across all matches of <code class="docutils literal notranslate"><span class="pre">parser</span></code></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="olygeo.parser.parser.ExpSep">
+<em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ExpSep</code><span class="sig-paren">(</span><em class="sig-param">parser</em>, <em class="sig-param">separator</em>, <em class="sig-param">sepfunc</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ExpSep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A Parser that matches another parser joined by a specific parser</p>
+<p>Similar to Exp, but it also passes the matches of the separator into the
+joining function</p>
+<p>Equivalent to A(BA)* in regex but avoids left recursion</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>parser</strong> (<em>Parser</em>) – Main parser</p></li>
+<li><p><strong>separator</strong> (<em>Process</em>) – Parser that matches token sequences that join the sequence.
+The function of separator should take left, sep, and right values and
+return a new value. A sane choice of function would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">left</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">ListAST</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="n">sep</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="olygeo.parser.parser.ExpSep.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ExpSep.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>The result of the function from <code class="docutils literal notranslate"><span class="pre">separator</span></code> applied left to right</p></li>
+<li><p>across all matches of <code class="docutils literal notranslate"><span class="pre">parser</span></code> and <code class="docutils literal notranslate"><span class="pre">separator</span></code></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="olygeo.parser.parser.ZeroWidth">
 <em class="property">class </em><code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">ZeroWidth</code><a class="headerlink" href="#olygeo.parser.parser.ZeroWidth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></p>
-<p>Just moves on with an empty match of None at same pos
-Only use at the end of an alternate. Never repeat</p>
+<dd><p>Bases: <a class="reference internal" href="#olygeo.parser.parser.Parser" title="olygeo.parser.parser.Parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">olygeo.parser.parser.Parser</span></code></a></p>
+<p>A parser which always matches and just moves on with an empty match of None.</p>
+<p>This continues at the same position, so it does effectively nothing but is
+not ignored in Concat.</p>
+<p>This is effectively just for convenience.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only use at the end of an Alternate. Never repeat</p>
+</div>
+<dl class="method">
+<dt id="olygeo.parser.parser.ZeroWidth.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">tokens</em>, <em class="sig-param">pos</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.ZeroWidth.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parser.indented">
+<code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">indented</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">amount=2</em>, <em class="sig-param">spacer=' '</em>, <em class="sig-param">sep='\n'</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.indented" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string indented at each line by a certain amount.</p>
+<p>By default, indents each line (determined by <code class="docutils literal notranslate"><span class="pre">\n</span></code> linefeeds) by 2 spaces.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="olygeo.parser.parser.star">
+<code class="sig-prename descclassname">olygeo.parser.parser.</code><code class="sig-name descname">star</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.parser.star" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a function to take a list of args instead of <code class="docutils literal notranslate"><span class="pre">*args</span></code> in sequence</p>
+<p class="rubric">Notes</p>
+<p>See <a class="reference external" href="https://stackoverflow.com/q/21892989">https://stackoverflow.com/q/21892989</a>.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-olygeo.parser.test">
 <span id="olygeo-parser-test-module"></span><h2>olygeo.parser.test module<a class="headerlink" href="#module-olygeo.parser.test" title="Permalink to this headline">¶</a></h2>
+<p>Provides functions for testing functions</p>
+<dl class="function">
+<dt id="olygeo.parser.test.test">
+<code class="sig-prename descclassname">olygeo.parser.test.</code><code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">get_parts=None</em><span class="sig-paren">)</span><a class="headerlink" href="#olygeo.parser.test.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test a function on specific parts using the training data</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>func</strong> – The function to test</p></li>
+<li><p><strong>get_parts</strong> – A function to split each case into sub-cases to independently test</p>
+<p>Default: just test each whole test case without splitting</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-olygeo.parser">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-olygeo.parser" title="Permalink to this headline">¶</a></h2>
@@ -336,7 +1330,19 @@ Only use at the end of an alternate. Never repeat</p>
   
   
     
-   
+  
+ <script type="text/javascript">
+    // https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
 
 </body>
 </html>
