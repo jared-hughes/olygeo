@@ -35,10 +35,12 @@ class Renderer(ABC):
         POINT = 2
         CIRCLE = 3
 
-    margin = 0.1
-    letter_height = 24
-    letter_width = letter_height
-    letter_radius = np.linalg.norm([letter_width, letter_height])/2
+    MARGIN_RATIO = 0.1
+    LETTER_HEIGHT = 24
+    LETTER_WIDTH = LETTER_HEIGHT
+    LETTER_RADIUS = np.linalg.norm([LETTER_WIDTH, LETTER_HEIGHT])/2
+    EDGE_WEIGHT = 1
+    POINT_RADIUS = 3
 
     def __init__(self, name, width, height):
         self.name = name
@@ -92,18 +94,20 @@ class Renderer(ABC):
         return int(length * self.transform_scale)
 
     def transform_point(self, x, y):
+        x, y = self._transform_point(x, y)
         xp = self.transform_length(x - self.scene_center_x) + self.screen_center_x
         yp = self.transform_length(y - self.scene_center_y) + self.screen_center_y
-        # should transform to large values where r
-                # will get to labels later
-                # have to scipy.optimize again to get closest point avoiding
-                # surrounding lines + circlesounding is irrelevent
+        # should transform to large values where rounding doesn't matter
         return (int(xp), int(yp))
+
+    def _transform_point(self, x, y):
+        """ Implementing classes can override to perform a transformation """
+        return (x, y)
 
     def calculate_transforms(self):
         scene_width = self.x_bound[1] - self.x_bound[0]
         scene_height = self.y_bound[1] - self.y_bound[0]
-        margin_scale = 1 - 2*self.margin
+        margin_scale = 1 - 2*self.MARGIN_RATIO
         scale_w = margin_scale * self.width / scene_width
         scale_h = margin_scale * self.height / scene_height
         self.transform_scale = min(scale_w, scale_h)
@@ -114,8 +118,8 @@ class Renderer(ABC):
 
     def place_label(self, label, preferred_x, preferred_y):
         length = len(label)
-        width = length * self.letter_width
-        height = self.letter_height
+        width = length * self.LETTER_WIDTH
+        height = self.LETTER_HEIGHT
 
         def error(xy):
             x, y = xy
@@ -142,7 +146,7 @@ class Renderer(ABC):
         def letter_object_constraint(i, type, attrs):
             def error(xy):
                 x, y = xy
-                r = self.letter_radius
+                r = self.LETTER_RADIUS
                 cy = y
                 cx = x - ((length-1)/2 - i) * r * 2
                 if type == Renderer.Objects.SEGMENT:
@@ -215,7 +219,7 @@ class Renderer(ABC):
             else:
                 print(f"Warning, could not place the label '{label}'")
 
-        self._finish_drawing()
+        return self._finish_drawing()
 
     @abstractmethod
     def _draw_segment(self, x1, y1, x2, y2):
@@ -231,8 +235,8 @@ class Renderer(ABC):
 
     @abstractmethod
     def _draw_label(label, label_x, label_y):
-        """ Implemented label methods should place labels within a letter_height x
-        len(label) * letter_width region centered at label_x, label_y"""
+        """ Implemented label methods should place labels within a LETTER_HEIGHT x
+        len(label) * LETTER_WIDTH region centered at label_x, label_y"""
         pass
 
     @abstractmethod
