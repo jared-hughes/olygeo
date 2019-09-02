@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod, abstractproperty
 import numpy as np
 from ..parser.parser import *
 
+__all__ = ["AbstractObject", "Number", "Point", "Circle", "Line"]
+
 class AbstractObject(ABC):
     def __init__(self, *vals):
         # print(vals, self.__class__.degrees_of_freedom())

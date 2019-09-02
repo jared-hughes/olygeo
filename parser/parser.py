@@ -17,10 +17,9 @@ def sequencify(ls):
 
 def listify(ls):
     """ Wrap any non-list into a list """
-    try:
-        # should return ls unmodified if ls is a list
-        return [] + ls
-    except:
+    if isinstance(ls, list):
+        return ls
+    else:
         return [ls]
 
 class Result:
@@ -237,11 +236,6 @@ def signature(seq):
         return type(seq)(parts)
     else:
         return type(seq).__name__
-
-    try:
-        return "[%s]"%(", ".join(signature(item) for item in seq))
-    except:
-        return type(seq)
 
 class Concat(Parser):
     """
@@ -614,6 +608,25 @@ def indented(string, amount=2, spacer=" ", sep="\n"):
     lines = str(string).split(sep)
     indented_lines = map(lambda line: spacer * amount + line, lines)
     return sep.join(indented_lines)
+
+def deindented(string, amount=2, spacer=None, sep="\n"):
+    """
+    Return a string deindented at each line
+
+    By default, always deindent each line,
+    If spacer is passed, only deindent if the string is uniformly indented by
+    that amount of that spacer.
+    """
+    lines = str(string).split(sep)
+    do_it = False
+    if spacer is None:
+        do_it = True
+    elif all(map(lambda line: line[:len(spacer)*amount] == spacer*amount, lines)):
+        do_it = True
+    print("doit", do_it)
+    if do_it:
+        lines = map(lambda line: line[amount:], lines)
+    return sep.join(lines)
 
 def star(f):
     """

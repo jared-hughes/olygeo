@@ -7,6 +7,8 @@ from .lex_geo import *
 import json
 from .ast_geo import *
 
+__all__ = ["parse"]
+
 def print_pass(tag=None):
     """
     Return a function to Process a Parser with that acts as a print statement
@@ -48,7 +50,7 @@ def keyword(key):
     AssertionError
         If key is not listed as a keyword in :py:mod:`olygeo.parser.lex_geo`
     """
-    assert key in (keywords + aux_reserved), "%s is not a keyword"%key
+    assert key in (all_keywords), "%s is not a keyword"%key
     return Reserved(key, Tags.RESERVED)
 
 def point():
@@ -116,7 +118,11 @@ def reference():
     """
     def process_reference(x):
         _, adj, ref, gerund = x
-        all_adjs = AdjectiveList(adj.adj_list + [gerund])
+        print("sad al")
+        adjs = adj.adj_list
+        if gerund:
+            adjs.append(gerund)
+        all_adjs = AdjectiveList(adjs)
         return Reference(ref, all_adjs)
 
     return Opt(article()) + shape_adj_list() + (obj() | polygon() | segment() | point()) \
@@ -184,7 +190,7 @@ def any_keyword(words):
 def midpoint():
     """ Return a parser for the relational adjective "midpoint." """
     return keyword("midpoint") + keyword("of") + segment() \
-        ^ star(lambda _m, _o, segment: Relation("midpoint", [segment]))
+        ^ star(lambda _m, _o, segment: Adjective("midpoint", [segment]))
 
 def relational_adj():
     """
@@ -257,7 +263,7 @@ def shape_adj():
 
 def shape_adj_list():
     """ Return a parser for a list of adjectives that can describe a shape. """
-    return Rep(shape_adj()) ^ (lambda x: AdjectiveList(x))
+    return Rep(shape_adj()) ^ print_pass("adj_list_meow") ^ (lambda x: AdjectiveList(x))
 
 def let_statement():
     """
@@ -310,7 +316,7 @@ def geo_parser():
     """ Return a parser for sentences that spans the whole input token list. """
     return Phrase(sentence_list())
 
-def parse_geo(tokens):
+def parse(tokens):
     """
     Parse tokens from a geometry string.
 

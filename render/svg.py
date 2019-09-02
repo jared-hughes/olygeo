@@ -1,6 +1,8 @@
 import drawSvg as draw
 from .renderer import Renderer
 
+__all__ = ["SVG"]
+
 class SVG(Renderer):
     def __init__(self, name, width, height):
         super().__init__(name, width, height)

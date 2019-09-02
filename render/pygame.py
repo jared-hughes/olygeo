@@ -2,6 +2,8 @@ import pygame
 import sys
 from .renderer import Renderer
 
+__all__ = ["Pygame"]
+
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 

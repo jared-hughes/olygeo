@@ -3,6 +3,8 @@ import numpy as np
 from .constructions import PrimitiveObject
 import random
 
+__all__ = ["Problem"]
+
 class Problem:
     x0 = []
     constraints = []

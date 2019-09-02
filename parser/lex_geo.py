@@ -6,6 +6,8 @@ import json
 from enum import Enum
 from .test import test
 
+__all__ = ["lex_string", "all_keywords", "Tags"]
+
 class Tags(Enum):
     """ Tags for Tokens """
     RESERVED = "RESERVED"
@@ -35,6 +37,8 @@ aux_reserved = [
     ".", ","
 ]
 """ Auxilary list of reserved words in addition to keywords """
+
+all_keywords = keywords + aux_reserved
 
 def lex_string(string):
     """ Lex a geometry string into tokens, including math """

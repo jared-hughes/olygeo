@@ -3,6 +3,9 @@ from abc import ABC, abstractmethod
 from .geometry import *
 from .tools import distance, istypes, unsupported
 
+__all__ = ["AbstractConstraint", "SamePointConstraint", "SameLengthConstraint",
+           "IntersectsConstraint"]
+
 class AbstractConstraint(ABC):
     def __init__(self, *objects):
         self.objects = objects
